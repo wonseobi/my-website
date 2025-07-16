@@ -127,8 +127,8 @@ export default function Hero() {
   return (
     <div id="hero" style={{
       background: "linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.85))",
-      padding: "0", // Remove top and bottom gap
-      margin: "0",
+      padding: 0,
+      margin: 0,
       boxShadow: "0 20px 60px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1)",
       backdropFilter: "blur(20px)",
       overflow: "hidden",
@@ -296,7 +296,7 @@ export default function Hero() {
             color: "rgba(255, 255, 255, 0.7)",
             lineHeight: "1.7",
             maxWidth: "600px",
-            margin: "0 auto 3rem",
+            margin: "0 auto 0",
             fontWeight: "400",
           }}
         >

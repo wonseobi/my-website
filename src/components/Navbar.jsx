@@ -141,8 +141,6 @@ export default function Navbar() {
         </div>
       </motion.nav>
 
-      {/* Spacer to push content below navbar */}
-      <div style={{ height: "80px" }} />
     </>
   );
 }

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 // Image imports
 import certerusImg from "../assets/certerusapp.png";
@@ -34,7 +34,7 @@ const projects = [
 const styles = {
   section: {
     background: "linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.85))",
-    padding: "4rem 0", margin: "2rem 0",
+    padding: "4rem 0", margin: 0,
     boxShadow: "0 20px 60px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1)",
     backdropFilter: "blur(20px)", overflow: "hidden", position: "relative",
   },
@@ -60,6 +60,23 @@ const styles = {
 
 export default function Projects() {
   const [dragProgress, setDragProgress] = useState(0);
+  const [dragLimits, setDragLimits] = useState({ left: 0, right: 0 });
+  const containerRef = useRef(null);
+  const listRef = useRef(null);
+
+  useEffect(() => {
+    function updateDragLimits() {
+      if (containerRef.current && listRef.current) {
+        const containerWidth = containerRef.current.offsetWidth;
+        const listWidth = listRef.current.scrollWidth;
+        const left = Math.min(0, containerWidth - listWidth);
+        setDragLimits({ left, right: 0 });
+      }
+    }
+    updateDragLimits();
+    window.addEventListener('resize', updateDragLimits);
+    return () => window.removeEventListener('resize', updateDragLimits);
+  }, []);
 
   return (
     <div id="projects" style={styles.section}>
@@ -76,7 +93,7 @@ export default function Projects() {
         *::selection { background: white; color: black; }
       `}</style>
 
-      <section style={{ padding: "0 2rem", position: "relative", zIndex: 1 }}>
+      <section style={{ padding: 0, position: "relative", zIndex: 1 }}>
         <div style={{ textAlign: "center", marginBottom: "3rem" }}>
           <motion.h2 initial={{ opacity: 0, y: -20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} style={styles.headerText}>
             My Featured Projects
@@ -86,15 +103,13 @@ export default function Projects() {
           </motion.p>
         </div>
 
-        <motion.div style={{ overflow: "visible", width: "100%", padding: "1rem 0 2rem" }}>
+        <motion.div style={{ overflow: "visible", width: "100%", padding: "1rem 0 2rem" }} ref={containerRef}>
           <motion.ul
+            ref={listRef}
             variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}
             style={{ display: "flex", gap: "2rem", listStyle: "none", padding: 0, margin: 0 }}
             drag="x"
-            dragConstraints={{
-              left: -(projects.length * 360 - (typeof window !== 'undefined' ? window.innerWidth : 1200) + 500),
-              right: 0
-            }}
+            dragConstraints={dragLimits}
             whileTap={{ cursor: "grabbing" }}
             onDrag={(e, info) => setDragProgress(Math.min(Math.abs(info.offset.x) / 1000, 1))}
           >
