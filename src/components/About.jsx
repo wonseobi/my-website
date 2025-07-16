@@ -3,10 +3,12 @@ import profileImg from "../assets/profile.PNG";
 
 const styles = {
   section: {
-    background: "linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.85))",
+    background:
+      "linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.85))",
     padding: 0,
     margin: 0,
-    boxShadow: "0 20px 60px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1)",
+    boxShadow:
+      "0 20px 60px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1)",
     backdropFilter: "blur(20px)",
     overflow: "hidden",
     position: "relative",
@@ -21,7 +23,7 @@ const styles = {
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    minHeight: "40vh"
+    minHeight: "40vh",
   },
   contentWrapper: {
     display: "flex",
@@ -30,7 +32,7 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
     width: "100%",
-    maxWidth: "900px"
+    maxWidth: "900px",
   },
   textContent: {
     display: "flex",
@@ -52,12 +54,12 @@ const styles = {
     fontSize: "1.5rem",
     fontWeight: 600,
     color: "rgba(255,255,255,0.9)",
-    marginBottom: "0rem",
-    margin: 0,
+    margin: "0.1rem 0",  // Reduced vertical margin
     padding: 0,
     background: "linear-gradient(135deg, #3b82f6, #8b5cf6)",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
+    lineHeight: "1.2",
   },
   paragraph: {
     color: "rgba(255,255,255,0.8)",
@@ -78,7 +80,8 @@ const styles = {
     borderRadius: "50%",
     overflow: "hidden",
     background: "rgba(255,255,255,0.08)",
-    boxShadow: "0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.1)",
+    boxShadow:
+      "0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.1)",
     backdropFilter: "blur(10px)",
   },
   image: {
@@ -91,7 +94,8 @@ const styles = {
     position: "absolute",
     inset: "-4px",
     borderRadius: "50%",
-    background: "linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899)",
+    background:
+      "linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899)",
     animation: "rotate 3s linear infinite",
   },
   mobileWrapper: {
@@ -99,8 +103,8 @@ const styles = {
       gridTemplateColumns: "1fr",
       gap: "2rem",
       textAlign: "center",
-    }
-  }
+    },
+  },
 };
 
 const textVariants = {
@@ -117,24 +121,38 @@ export default function About() {
   return (
     <div id="about" style={styles.section}>
       {/* Animated background */}
-      <div style={{
-        position: "absolute",
-        inset: 0,
-        background: "radial-gradient(circle at 80% 20%, rgba(59,130,246,0.1), transparent), radial-gradient(circle at 20% 80%, rgba(236,72,153,0.1), transparent)",
-        animation: "float 6s ease-in-out infinite"
-      }} />
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background:
+            "radial-gradient(circle at 80% 20%, rgba(59,130,246,0.1), transparent), radial-gradient(circle at 20% 80%, rgba(236,72,153,0.1), transparent)",
+          animation: "float 6s ease-in-out infinite",
+        }}
+      />
 
       {/* CSS animations */}
       <style jsx>{`
         @keyframes float {
-          0%, 100% { transform: translateY(0) rotate(0); }
-          50% { transform: translateY(-10px) rotate(1deg); }
+          0%, 100% {
+            transform: translateY(0) rotate(0);
+          }
+          50% {
+            transform: translateY(-10px) rotate(1deg);
+          }
         }
         @keyframes rotate {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
         }
-        *::selection { background: white; color: black; }
+        *::selection {
+          background: white;
+          color: black;
+        }
 
         @media (max-width: 768px) {
           .content-wrapper {
@@ -172,15 +190,16 @@ export default function About() {
               Won Lee
             </motion.h1>
 
-            <motion.p
-              variants={{...textVariants, transition: { duration: 0.6, delay: 0.2 }}}
+            <motion.h2
+              variants={{ ...textVariants, transition: { duration: 0.6, delay: 0.2 } }}
+              className="subtitle"
               style={styles.subtitle}
             >
               Full-Stack Developer & UI/UX Designer
-            </motion.p>
+            </motion.h2>
 
             <motion.p
-              variants={{...textVariants, transition: { duration: 0.6, delay: 0.4 }}}
+              variants={{ ...textVariants, transition: { duration: 0.6, delay: 0.4 } }}
               style={styles.paragraph}
             >
               I'm a passionate developer with a love for creating beautiful, functional, and user-centered digital experiences. With expertise in modern web technologies and a keen eye for design, I transform ideas into reality through clean code and innovative solutions. I enjoy working on challenging projects that push the boundaries of what's possible on the web.
@@ -197,11 +216,7 @@ export default function About() {
           >
             <div style={styles.gradientRing} />
             <div className="image-wrapper" style={styles.imageWrapper}>
-              <img
-                src={profileImg}
-                alt="Your Name"
-                style={styles.image}
-              />
+              <img src={profileImg} alt="Your Name" style={styles.image} />
             </div>
 
             {/* Floating elements */}
@@ -217,13 +232,18 @@ export default function About() {
                 background: "rgba(59,130,246,0.2)",
                 borderRadius: "50%",
                 backdropFilter: "blur(10px)",
-                border: "1px solid rgba(255,255,255,0.1)"
+                border: "1px solid rgba(255,255,255,0.1)",
               }}
             />
 
             <motion.div
               animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 1,
+              }}
               style={{
                 position: "absolute",
                 bottom: "10%",
@@ -233,7 +253,7 @@ export default function About() {
                 background: "rgba(236,72,153,0.2)",
                 borderRadius: "50%",
                 backdropFilter: "blur(10px)",
-                border: "1px solid rgba(255,255,255,0.1)"
+                border: "1px solid rgba(255,255,255,0.1)",
               }}
             />
           </motion.div>

@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { FiMail } from "react-icons/fi";
+import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -14,9 +16,16 @@ export default function Navbar() {
     e.preventDefault();
     const heroSection = document.getElementById("hero");
     if (heroSection) {
-        heroSection.scrollIntoView({ behavior: "smooth" });
+      heroSection.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  const socialLinks = [
+    { icon: <FiMail />, href: "mailto:wonseob2207@gmail.com", label: "Email" },
+    { icon: <FaGithub />, href: "https://github.com/wonseobi", label: "GitHub" },
+    { icon: <FaLinkedin />, href: "https://linkedin.com/in/yourlinkedin", label: "LinkedIn" },
+    { icon: <FaInstagram />, href: "https://www.instagram.com/won.seobi/", label: "Instagram" },
+  ];
 
   return (
     <>
@@ -29,17 +38,75 @@ export default function Navbar() {
         }
 
         .navbar-brand {
-          background: linear-gradient(135deg, #ffffff, #e2e8f0);
+          font-weight: 700;
+          font-size: 1.5rem;
+          letter-spacing: -0.02em;
+          margin: 0;
+          cursor: pointer;
+          flex: 1;
+          text-align: left;
+          padding-right: 3em;
+
+          background: linear-gradient(
+            90deg,
+            #e2e8f0 20%,
+            #ffffff 40%,
+            #e2e8f0 60%
+          );
+          background-size: 200% 100%;
+          background-position: 0% 0;
+
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
+
+          transition: background-position 1s ease;
+        }
+        .navbar-brand:hover {
+          background-position: 100% 0;
+        }
+
+        .menu {
+          display: flex;
+          gap: 2rem;
+          justify-content: center;
+          flex: 2;
+        }
+
+        .menu a {
+          color: rgba(255, 255, 255, 0.8);
+          text-decoration: none;
+          font-size: 0.95rem;
+          font-weight: 500;
+          padding: 0.5rem;
+          transition: all 0.3s ease;
+          cursor: pointer;
+          display: inline-block;
+        }
+        .menu a:hover {
+          scale: 1.05;
+          color: #ffffff;
           transition: all 0.3s ease;
         }
 
-        .navbar-brand:hover {
-          background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
+        .social-icons {
+          display: flex;
+          gap: 1.25rem;
+          justify-content: flex-end;
+          flex: 1;
+          padding-left: 4em;
+        }
+        .social-icons a {
+          color: rgba(255, 255, 255, 0.8);
+          font-size: 1.3rem;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .social-icons a:hover {
+          color: #ffffff;
+          transform: scale(1.05);
         }
 
         @keyframes fadeIn {
@@ -88,31 +155,14 @@ export default function Navbar() {
           <motion.h1
             onClick={scrollToHero}
             className="navbar-brand"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            style={{
-              fontSize: "1.5rem",
-              fontWeight: "700",
-              letterSpacing: "-0.02em",
-              margin: 0,
-              cursor: "pointer",
-              flex: 1,
-              textAlign: "left",
-              paddingRight: "1.5em",
-            }}
+            whileHover={{ scale: 1.05, ease: "easeInOut" }}
+            whileTap={{ scale: 0.95, ease: "easeInOut" }}
           >
             Won Lee
           </motion.h1>
 
           {/* Center: Menu */}
-          <div
-            style={{
-              display: "flex",
-              gap: "2rem",
-              justifyContent: "center",
-              flex: 2,
-            }}
-          >
+          <div className="menu">
             {["Projects", "About", "Contact"].map((item, index) => (
               <motion.a
                 key={item}
@@ -125,22 +175,28 @@ export default function Navbar() {
                   color: "#ffffff",
                   transition: { duration: 0.3 },
                 }}
-                style={{
-                  color: "rgba(255,255,255,0.8)",
-                  textDecoration: "none",
-                  fontSize: "0.95rem",
-                  fontWeight: "500",
-                  padding: "0.5rem 1rem",
-                  transition: "all 0.1s ease",
-                }}
               >
                 {item}
               </motion.a>
             ))}
           </div>
+
+          {/* Right: Social Icons */}
+          <div className="social-icons">
+            {socialLinks.map(({ icon, href, label }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+              >
+                {icon}
+              </a>
+            ))}
+          </div>
         </div>
       </motion.nav>
-
     </>
   );
 }

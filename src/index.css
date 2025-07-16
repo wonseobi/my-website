@@ -6,6 +6,16 @@
   scroll-behavior: smooth;
 }
 
+/* Fix for scrollbars / viewport overflow */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  overscroll-behavior: none;
+}
+
 body {
   font-family: 'Inter', sans-serif;
   background: #0f0f1b;
@@ -105,14 +115,15 @@ nav {
   margin-top: 2rem;
   box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.02);
 }
+
 /* Links ---------------------------------------------------- */
 a {
-  color: #00c6ff;         
+  color: #00c6ff;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
-a:visited {  
+a:visited {
   color: #00a8e0;
 }
 

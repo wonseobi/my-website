@@ -4,8 +4,9 @@ import { useState, useEffect } from "react";
 const ease = [0.6, -0.05, 0.01, 0.99];
 
 const skills = [
-
-  "React", "Python", "TypeScript", "React Native", "Node.js", "UI/UX Design", "GraphQL", "JavaScript", "HTML/CSS", "MongoDB", "Three.js", "Next.js", "Vite", "AWS"
+  "React", "Python", "TypeScript", "React Native", "Node.js", "UI/UX Design",
+  "GraphQL", "JavaScript", "HTML/CSS", "MongoDB", "Three.js", "Next.js",
+  "Vite", "AWS"
 ];
 
 const techStack = [
@@ -78,7 +79,9 @@ const TechIcon = ({ tech, index }) => (
       border: tech.symbol.length > 1 ? `1px solid rgba(255, 255, 255, 0.15)` : 'none',
       backdropFilter: tech.symbol.length > 1 ? "blur(15px)" : 'none',
       fontFamily: tech.symbol.length > 1 ? "'Inter', -apple-system, sans-serif" : 'inherit',
-      boxShadow: tech.symbol.length > 1 ? `0 4px 15px rgba(0, 0, 0, 0.1), 0 0 10px ${tech.color}30` : `0 0 15px ${tech.color}40`,
+      boxShadow: tech.symbol.length > 1
+        ? `0 4px 15px rgba(0, 0, 0, 0.1), 0 0 10px ${tech.color}30`
+        : `0 0 15px ${tech.color}40`,
     }}
   >
     {tech.symbol}
@@ -125,63 +128,67 @@ export default function Hero() {
   }, []);
 
   return (
-    <div id="hero" style={{
-      background: "linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.85))",
-      padding: 0,
-      margin: 0,
-      boxShadow: "0 20px 60px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1)",
-      backdropFilter: "blur(20px)",
-      overflow: "hidden",
-      position: "relative",
-      minHeight: "100vh",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-    }}>
-      {/* Background gradients */}
-      <div style={{
-        position: "absolute",
-        inset: 0,
-        background: `
+    <div
+      id="hero"
+      style={{
+        background:
+          "linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.85))",
+        padding: 0,
+        margin: 0,
+        boxShadow: "inset 0 1px 0 rgba(255,255,255,0.1)",
+        backdropFilter: "blur(20px)",
+        overflow: "hidden",
+        position: "relative",
+        height: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background: `
           radial-gradient(circle at 20% 50%, rgba(59,130,246,0.1), transparent),
           radial-gradient(circle at 80% 20%, rgba(236,72,153,0.1), transparent)
         `,
-        animation: "float 6s ease-in-out infinite"
-      }} />
+          animation: "float 6s ease-in-out infinite",
+        }}
+      />
 
-      {/* Grid pattern */}
-      <div style={{
-        position: "absolute",
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        backgroundImage: `
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundImage: `
           linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
           linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)
         `,
-        backgroundSize: "50px 50px",
-        opacity: 0.4,
-      }} />
+          backgroundSize: "50px 50px",
+          opacity: 0.4,
+        }}
+      />
 
-      {/* Floating orbs */}
       {[...Array(6)].map((_, i) => (
         <FloatingOrb key={i} index={i} />
       ))}
 
-      {/* Tech icons */}
       {techStack.map((tech, index) => (
         <TechIcon key={index} tech={tech} index={index} />
       ))}
 
-      {/* Particles */}
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, pointerEvents: "none" }}>
+      <div
+        style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, pointerEvents: "none" }}
+      >
         {[...Array(12)].map((_, i) => (
           <Particle key={i} index={i} />
         ))}
       </div>
 
-      {/* Main content */}
       <motion.section
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -194,7 +201,6 @@ export default function Hero() {
           position: "relative",
         }}
       >
-        {/* Greeting */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -210,7 +216,6 @@ export default function Hero() {
           Hello, I'm
         </motion.div>
 
-        {/* Name */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -218,9 +223,7 @@ export default function Hero() {
           style={{
             fontSize: "clamp(3rem, 8vw, 5.5rem)",
             fontWeight: "800",
-            background: "linear-gradient(135deg, #ffffff 0%, #e2e8f0 50%, #3b82f6 100%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
+            color: "#ffffff",
             marginBottom: "1.5rem",
             letterSpacing: "-0.02em",
             lineHeight: "1.1",
@@ -230,7 +233,6 @@ export default function Hero() {
           Won Lee
         </motion.h1>
 
-        {/* Animated underline */}
         <motion.div
           initial={{ width: 0 }}
           animate={{ width: "200px" }}
@@ -244,7 +246,6 @@ export default function Hero() {
           }}
         />
 
-        {/* Skill rotation */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -273,11 +274,13 @@ export default function Hero() {
             style={{
               color: "#ffffff",
               fontWeight: "700",
-              background: "linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.15))",
+              background:
+                "linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.15))",
               padding: "0.4rem 1rem",
               borderRadius: "12px",
               border: "1px solid rgba(59, 130, 246, 0.3)",
-              boxShadow: "0 4px 15px rgba(59, 130, 246, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)",
+              boxShadow:
+                "0 4px 15px rgba(59, 130, 246, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)",
               backdropFilter: "blur(15px)",
               textShadow: "0 0 10px rgba(59, 130, 246, 0.5)",
             }}
@@ -286,7 +289,6 @@ export default function Hero() {
           </motion.span>
         </motion.div>
 
-        {/* Description */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -303,7 +305,6 @@ export default function Hero() {
           I create fast, clean digital experiences that merge cutting-edge tech with intuitive design. Let’s build something exceptional.
         </motion.p>
 
-        {/* CTA Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -313,6 +314,7 @@ export default function Hero() {
             gap: "1.5rem",
             justifyContent: "center",
             flexWrap: "wrap",
+            marginTop: "2rem",
           }}
         >
           <motion.button
@@ -360,6 +362,12 @@ export default function Hero() {
           </motion.button>
 
           <motion.button
+            onClick={() => {
+              const target = document.getElementById("contact");
+              if (target) {
+                target.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
             whileHover={{
               scale: 1.05,
               backgroundColor: "rgba(255, 255, 255, 0.12)",
@@ -386,11 +394,22 @@ export default function Hero() {
       </motion.section>
 
       <style jsx>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0) rotate(0); }
-          50% { transform: translateY(-10px) rotate(1deg); }
+        body {
+          margin: 0;
         }
-        *::selection { background: white; color: black; }
+        @keyframes float {
+          0%,
+          100% {
+            transform: translateY(0) rotate(0);
+          }
+          50% {
+            transform: translateY(-10px) rotate(1deg);
+          }
+        }
+        *::selection {
+          background: white;
+          color: black;
+        }
       `}</style>
     </div>
   );

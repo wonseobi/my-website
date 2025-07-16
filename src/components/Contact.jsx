@@ -15,8 +15,8 @@ const contactItems = [
   {
     icon: FiMail,
     label: "Email",
-    value: "you@example.com",
-    href: "mailto:you@example.com",
+    value: "wonseob2207@gmail.com",
+    href: "mailto:wonseob2207@gmail.com",
     accent: "from-blue-500 to-purple-500",
     description: "Send me a message"
   },
@@ -31,10 +31,10 @@ const contactItems = [
   {
     icon: FiGithub,
     label: "GitHub",
-    value: "github.com/yourname",
-    href: "https://github.com/yourname",
+    value: "github.com/wonseobi",
+    href: "https://github.com/wonseobi",
     accent: "from-gray-700 to-gray-500",
-    description: "Check out my code"
+    description: "My projects and"
   }
 ];
 
@@ -65,7 +65,6 @@ const styles = {
     backdropFilter: "blur(10px)",
     position: "relative",
     cursor: "pointer",
-    transition: "all 0.3s ease",
     border: "1px solid rgba(255,255,255,0.1)"
   },
   footerNote: {
@@ -99,7 +98,7 @@ export default function Contact() {
 
       <div style={{ padding: "0 2rem", position: "relative", zIndex: 1, maxWidth: "1200px", margin: "0 auto" }}>
         {/* Header */}
-        <div style={{ textAlign: "center", marginBottom: "3rem" }}>
+        <div style={{ textAlign: "center", marginBottom: "3rem", paddingTop: "3rem" }}>
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -241,7 +240,7 @@ export default function Contact() {
           style={styles.footerNote}
         >
           <p style={{ margin: 0 }}>
-            © 2024 Your Name. Built with passion and lots of coffee ☕
+            © 2025 Build and Developed by Won Lee
           </p>
         </motion.div>
       </div>
