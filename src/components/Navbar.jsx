@@ -155,15 +155,14 @@ export default function Navbar() {
           <motion.h1
             onClick={scrollToHero}
             className="navbar-brand"
-            whileHover={{ scale: 1.05, ease: "easeInOut" }}
-            whileTap={{ scale: 0.95, ease: "easeInOut" }}
+            whileHover={{ scale: 1.05, ease: "easeOut" }}
           >
             Won Lee
           </motion.h1>
 
           {/* Center: Menu */}
           <div className="menu">
-            {["Projects", "About", "Contact"].map((item, index) => (
+            {["Projects", "Experience", "About", "Contact"].map((item, index) => (
               <motion.a
                 key={item}
                 href={`#${item.toLowerCase()}`}

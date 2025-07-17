@@ -33,10 +33,11 @@ const projects = [
 
 const styles = {
   section: {
-    background: "linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.85))",
-    padding: "4rem 0", margin: 0,
-    boxShadow: "0 20px 60px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1)",
-    backdropFilter: "blur(20px)", overflow: "hidden", position: "relative",
+    padding: "4rem 0",
+    margin: 0,
+    position: "relative",
+    isolation: "isolate",
+    // Remove any background-related properties
   },
   card: {
     background: "rgba(255,255,255,0.08)",
@@ -80,10 +81,16 @@ export default function Projects() {
 
   return (
     <div id="projects" style={styles.section}>
+      {/* Keep the overlay gradient but make it more subtle */}
       <div style={{
-        position: "absolute", inset: 0,
-        background: "radial-gradient(circle at 20% 50%, rgba(59,130,246,0.1), transparent), radial-gradient(circle at 80% 20%, rgba(236,72,153,0.1), transparent)",
-        animation: "float 6s ease-in-out infinite"
+        position: "absolute",
+        inset: 0,
+        background: `
+        radial-gradient(circle at 20% 50%, rgba(59,130,246,0.03), transparent),
+        radial-gradient(circle at 80% 20%, rgba(236,72,153,0.03), transparent)
+      `,
+        animation: "float 6s ease-in-out infinite",
+        opacity: 0.4,
       }} />
       <style jsx>{`
         @keyframes float {

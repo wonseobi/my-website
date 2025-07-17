@@ -131,15 +131,10 @@ export default function Hero() {
     <div
       id="hero"
       style={{
-        background:
-          "linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.85))",
         padding: 0,
         margin: 0,
-        boxShadow: "inset 0 1px 0 rgba(255,255,255,0.1)",
-        backdropFilter: "blur(20px)",
-        overflow: "hidden",
         position: "relative",
-        height: "100vh",
+        minHeight: "100vh",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -150,10 +145,11 @@ export default function Hero() {
           position: "absolute",
           inset: 0,
           background: `
-          radial-gradient(circle at 20% 50%, rgba(59,130,246,0.1), transparent),
-          radial-gradient(circle at 80% 20%, rgba(236,72,153,0.1), transparent)
+          radial-gradient(circle at 20% 50%, rgba(59,130,246,0.03), transparent),
+          radial-gradient(circle at 80% 20%, rgba(236,72,153,0.03), transparent)
         `,
           animation: "float 6s ease-in-out infinite",
+          opacity: 0.4,
         }}
       />
 
@@ -324,13 +320,14 @@ export default function Hero() {
                 target.scrollIntoView({ behavior: "smooth" });
               }
             }}
-            whileHover={{
+             whileHover={{
               scale: 1.05,
-              boxShadow: "0 15px 40px rgba(59, 130, 246, 0.4), 0 0 20px rgba(59, 130, 246, 0.3)",
+              backgroundColor: "rgba(255, 255, 255, 0.12)",
+              boxShadow: "0 10px 30px rgba(255, 255, 255, 0.1)",
             }}
             whileTap={{ scale: 0.95 }}
             style={{
-              background: "linear-gradient(135deg, #3b82f6, #8b5cf6)",
+              background: "linear-gradient(135deg, #008cffff, #ff00ffe6)",
               color: "white",
               padding: "1rem 2.5rem",
               borderRadius: "16px",

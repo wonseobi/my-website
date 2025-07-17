@@ -5,16 +5,26 @@ export default function ScrollToTop() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    function toggleVisibility() {
-      setVisible(window.pageYOffset > 300);
-    }
-    window.addEventListener("scroll", toggleVisibility);
+    const toggleVisibility = () => {
+      // Lower the threshold and use window.scrollY for better browser support
+      setVisible(window.scrollY > 100);
+    };
+
+    // Initial check
+    toggleVisibility();
+
+    // Add passive listener for better performance
+    window.addEventListener("scroll", toggleVisibility, { passive: true });
+
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
-  function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <button
@@ -23,35 +33,36 @@ export default function ScrollToTop() {
         position: "fixed",
         bottom: "2rem",
         right: "2rem",
-        backgroundColor: "#ffffffff",
+        backgroundColor: "rgba(255, 255, 255, 0.9)",
         border: "none",
         borderRadius: "50%",
         width: "3.5rem",
         height: "3.5rem",
         color: "#0f0f1b",
         cursor: "pointer",
-        boxShadow: "0 4px 12px rgba(255, 255, 255, 0.5)",
+        boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
         opacity: visible ? 1 : 0,
+        transform: visible ? "scale(1)" : "scale(0.8)",
         pointerEvents: visible ? "auto" : "none",
-        transition: "opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease",
-        zIndex: 1000,
+        transition: "all 0.3s ease",
+        zIndex: 9999, // Increased z-index
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        fontSize: "1.8rem",
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.transform = "scale(1.15)";
-        e.currentTarget.style.boxShadow = "0 0 15px 5px #ffffffff";
+        e.currentTarget.style.backgroundColor = "#ffffff";
+        e.currentTarget.style.boxShadow = "0 8px 20px rgba(0, 0, 0, 0.2)";
       }}
       onMouseLeave={(e) => {
         e.currentTarget.style.transform = "scale(1)";
-        e.currentTarget.style.boxShadow = "0 4px 12px rgba(255, 255, 255, 0.5)";
+        e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.9)";
+        e.currentTarget.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.15)";
       }}
       aria-label="Scroll to top"
-      title="Scroll to top"
     >
-      <FiArrowUp />
+      <FiArrowUp size={24} />
     </button>
   );
 }

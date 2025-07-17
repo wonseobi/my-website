@@ -40,13 +40,10 @@ const contactItems = [
 
 const styles = {
   section: {
-    background: "linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.85))",
-    padding: 0,
+    padding: "4rem 0",
     margin: 0,
-    boxShadow: "0 20px 60px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1)",
-    backdropFilter: "blur(20px)",
-    overflow: "hidden",
     position: "relative",
+    isolation: "isolate",
   },
   headerText: {
     fontSize: "3rem",
@@ -80,23 +77,23 @@ const styles = {
 export default function Contact() {
   return (
     <footer id="contact" style={styles.section}>
-      {/* Animated background */}
+      {/* Subtle section overlay */}
       <div style={{
         position: "absolute",
         inset: 0,
-        background: "radial-gradient(circle at 20% 50%, rgba(59,130,246,0.1), transparent), radial-gradient(circle at 80% 20%, rgba(236,72,153,0.1), transparent)",
+        background: "radial-gradient(circle at 20% 50%, rgba(59,130,246,0.05), transparent), radial-gradient(circle at 80% 20%, rgba(236,72,153,0.05), transparent)",
+        opacity: 0.6,
         animation: "float 6s ease-in-out infinite"
       }} />
 
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0) rotate(0); }
-          50% { transform: translateY(-10px) rotate(1deg); }
-        }
-        *::selection { background: white; color: black; }
-      `}</style>
-
-      <div style={{ padding: "0 2rem", position: "relative", zIndex: 1, maxWidth: "1200px", margin: "0 auto" }}>
+      {/* Content container */}
+      <div style={{
+        position: "relative",
+        zIndex: 1,
+        padding: 0,
+        maxWidth: "1200px",
+        margin: "0 auto"
+      }}>
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: "3rem", paddingTop: "3rem" }}>
           <motion.h2
@@ -107,6 +104,7 @@ export default function Contact() {
           >
             Let's Connect
           </motion.h2>
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -119,6 +117,7 @@ export default function Contact() {
               lineHeight: "1.6"
             }}
           >
+
             Ready to collaborate or just want to say hello? I'd love to hear from you!
           </motion.p>
         </div>
@@ -130,10 +129,15 @@ export default function Contact() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+            display: "flex",
+            flexDirection: "row",
+            flexWrap: "wrap",
+            justifyContent: "center",
             gap: "2rem",
-            marginBottom: "2rem"
+            marginBottom: "2rem",
+            padding: "0 2rem",
+            maxWidth: "1200px",
+            margin: "0 auto"
           }}
         >
           {contactItems.map((item, index) => (
@@ -151,7 +155,9 @@ export default function Contact() {
               style={{
                 ...styles.contactCard,
                 textDecoration: "none",
-                color: "inherit"
+                color: "inherit",
+                width: "340px", // Fixed width for consistent sizing
+                flex: "0 0 auto" // Prevent stretching
               }}
             >
               {/* Accent line */}
@@ -240,7 +246,7 @@ export default function Contact() {
           style={styles.footerNote}
         >
           <p style={{ margin: 0 }}>
-            © 2025 Build and Developed by Won Lee
+            © 2025 Built and Developed by Won Lee
           </p>
         </motion.div>
       </div>

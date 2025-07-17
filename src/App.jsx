@@ -4,6 +4,7 @@ import Contact from './components/Contact'
 import Hero from './components/Hero'
 import Projects from './components/Projects'
 import ScrollToTop from './components/ScrollToTop'
+import Experience from './components/Experience'
 
 function App() {
   return(
@@ -12,6 +13,7 @@ function App() {
       <Hero />
       <Projects />
       <About />
+      <Experience />
       <Contact />
       <ScrollToTop/>
     </>
