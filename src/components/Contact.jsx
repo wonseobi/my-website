@@ -24,7 +24,7 @@ const contactItems = [
     icon: FiLinkedin,
     label: "LinkedIn",
     value: "linkedin.com/in/yourname",
-    href: "https://linkedin.com/in/yourname",
+    href: "https://www.linkedin.com/feed/",
     accent: "from-blue-600 to-blue-400",
     description: "Connect with me"
   },

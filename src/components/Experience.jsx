@@ -58,11 +58,11 @@ const experiences = [
 {
   id: 3,
   title: "Software Engineering Student",
-  company: "UANL – FIME",
+  company: "UANL",
   location: "Monterrey, Mexico",
   period: "2025 – Present",
   type: "Academic",
-  description: "Pursuing a Bachelor's degree in Software Technology Engineering with a focus on collaboration and technical skills.",
+  description: "Bachelor's degree in Software Technology Engineering with a focus on collaboration and technical skills.",
   details: [
     "Led and coordinated software projects in academic team settings",
     "Assisted peers with development work and contributed to team outcomes",
@@ -134,7 +134,7 @@ const styles = {
   sidebarLine: {
     flex: 1,
     height: "2px",
-    background: "linear-gradient(90deg, rgba(255,255,255,0.3), transparent)",
+    background: "linear-gradient(90deg, rgba(255, 255, 255, 0.3), transparent)",
   },
   experienceList: {
     display: "flex",
@@ -145,13 +145,12 @@ const styles = {
     padding: "1.5rem",
     background: "rgba(255,255,255,0.05)",
     borderRadius: "1rem",
-    border: "1px solid rgba(255,255,255,0.1)",
     backdropFilter: "blur(10px)",
     cursor: "pointer",
     transition: "all 0.3s ease",
     position: "relative",
     overflow: "hidden",
-    outline: "none", // Remove outline
+
   },
   experienceItemActive: {
     background: "rgba(255,255,255,0.1)",
@@ -274,7 +273,7 @@ const styles = {
     alignItems: "center",
     gap: "0.75rem",
     margin: "4rem auto 0",
-    padding: "1rem 2rem",
+    padding: "1.5rem 3rem",
     background: "linear-gradient(135deg, #3b82f6, #8b5cf6)",
     color: "#fff",
     border: "none",
@@ -420,7 +419,7 @@ export default function Experience() {
         >
           <h2 style={styles.headerText}>Professional Experience</h2>
           <p style={styles.subtitle}>
-            My journey through the tech industry • Click on any company to explore my role
+            My journey through the tech industry • Click on any company to explore
           </p>
         </motion.div>
 
@@ -593,7 +592,7 @@ export default function Experience() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <FiDownload size={20} />
+          <FiDownload size={24} />
           Download my CV
         </motion.button>
       </div>

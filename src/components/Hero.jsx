@@ -1,26 +1,69 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
+// Import tech stack icons
+import reactIcon from "../assets/react.png";
+import javascriptIcon from "../assets/javascript.png";
+import nodejsIcon from "../assets/nodejs.png";
+import htmlIcon from "../assets/html.png";
+import cssIcon from "../assets/css.png";
+import pythonIcon from "../assets/python.png";
+import gitIcon from "../assets/git.png";
+import postgresqlIcon from "../assets/postgresql.png";
+import typescriptIcon from "../assets/typescript.png";
+import vueIcon from "../assets/vue.png";
+import sassIcon from "../assets/sass.png";
+import nextjsIcon from "../assets/nextjs.png";
+import wordpressIcon from "../assets/wordpress.png";
+import figmaIcon from "../assets/figma.png";
+import mongodbIcon from "../assets/mongodb.png";
+import csharpIcon from "../assets/csharp.png";
+import phpIcon from "../assets/php.png";
+import mysqlIcon from "../assets/mysql.png";
+import laravelIcon from "../assets/laravel.png";
+import graphqlIcon from "../assets/graphql.png";
+import awsIcon from "../assets/aws.png";
+import googlecloudIcon from "../assets/googlecloud.png";
+import azureIcon from "../assets/azure.png";
+import dockerIcon from "../assets/docker.png";
+import kubernetesIcon from "../assets/kubernetes.png";
+
 const ease = [0.6, -0.05, 0.01, 0.99];
 
 const skills = [
-  "React", "Python", "TypeScript", "React Native", "Node.js", "UI/UX Design",
-  "GraphQL", "JavaScript", "HTML/CSS", "MongoDB", "Three.js", "Next.js",
-  "Vite", "AWS"
+  "React", "JavaScript", "Node.js", "Python", "HTML", "CSS", "Git",
+  "PostgreSQL", "TypeScript", "Vue.js", "SASS", "Next.js", "WordPress", "Figma", "MongoDB", "C#", "PHP", "MySQL",
+  "Laravel", "GraphQL", "AWS", "Google Cloud", "Azure", "Docker", "Kubernetes"
 ];
 
 const techStack = [
-  { name: "React", symbol: "⚛️", color: "#61DAFB" },
-  { name: "JavaScript", symbol: "JS", color: "#F7DF1E" },
-  { name: "Node.js", symbol: "⬢", color: "#339933" },
-  { name: "TypeScript", symbol: "TS", color: "#3178C6" },
-  { name: "Python", symbol: "🐍", color: "#3776AB" },
-  { name: "HTML", symbol: "</>", color: "#E34F26" },
-  { name: "CSS", symbol: "{}", color: "#1572B6" },
-  { name: "Git", symbol: "⎇", color: "#F05032" },
-];
-
-const FloatingOrb = ({ index }) => (
+  // Technologies with available icons
+  { name: "React", icon: reactIcon, color: "#61DAFB" },
+  { name: "JavaScript", icon: javascriptIcon, color: "#F7DF1E" },
+  { name: "Node.js", icon: nodejsIcon, color: "#339933" },
+  { name: "Python", icon: pythonIcon, color: "#3776AB" },
+  { name: "HTML", icon: htmlIcon, color: "#E34F26" },
+  { name: "CSS", icon: cssIcon, color: "#1572B6" },
+  { name: "Git", icon: gitIcon, color: "#F05032" },
+  { name: "PostgreSQL", icon: postgresqlIcon, color: "#336791" },
+  { name: "TypeScript", icon: typescriptIcon, color: "#3178C6" },
+  { name: "Vue.js", icon: vueIcon, color: "#4FC08D" },
+  { name: "SASS", icon: sassIcon, color: "#CC6699" },
+  { name: "Next.js", icon: nextjsIcon, color: "#000000" },
+  { name: "WordPress", icon: wordpressIcon, color: "#21759B" },
+  { name: "Figma", icon: figmaIcon, color: "#F24E1E" },
+  { name: "MongoDB", icon: mongodbIcon, color: "#47A248" },
+  { name: "C#", icon: csharpIcon, color: "#239120" },
+  { name: "PHP", icon: phpIcon, color: "#777BB4" },
+  { name: "MySQL", icon: mysqlIcon, color: "#4479A1" },
+  { name: "Laravel", icon: laravelIcon, color: "#FF2D20" },
+  { name: "GraphQL", icon: graphqlIcon, color: "#E10098" },
+  { name: "AWS", icon: awsIcon, color: "#FF9900" },
+  { name: "Google Cloud", icon: googlecloudIcon, color: "#4285F4" },
+  { name: "Azure", icon: azureIcon, color: "#0078D4" },
+  { name: "Docker", icon: dockerIcon, color: "#2496ED" },
+  { name: "Kubernetes", icon: kubernetesIcon, color: "#326CE5" },
+];const FloatingOrb = ({ index }) => (
   <motion.div
     initial={{ opacity: 0, scale: 0 }}
     animate={{
@@ -49,7 +92,7 @@ const FloatingOrb = ({ index }) => (
   />
 );
 
-const TechIcon = ({ tech, index }) => (
+const TechIcon = ({ tech, index, position, onAnimationComplete }) => (
   <motion.div
     initial={{ opacity: 0, scale: 0 }}
     animate={{
@@ -59,32 +102,59 @@ const TechIcon = ({ tech, index }) => (
       rotate: [0, 5, -5, 0],
     }}
     transition={{
-      duration: 7,
-      repeat: Infinity,
+      duration: 8,
       delay: index * 0.8,
       ease: "easeInOut"
     }}
+    onAnimationComplete={() => {
+      if (index === 6) { // Last bubble (index 6 of 7 bubbles)
+        onAnimationComplete();
+      }
+    }}
     style={{
       position: "absolute",
-      fontSize: tech.symbol.length > 1 ? "1.1rem" : "1.8rem",
-      fontWeight: "700",
-      left: `${15 + (index * 10)}%`,
-      top: `${25 + (index * 9) % 50}%`,
+      left: `${position?.left || 15 + (index * 10)}%`,
+      top: `${position?.top || 25 + (index * 9) % 50}%`,
       zIndex: 1,
-      color: tech.color,
-      textShadow: `0 0 15px ${tech.color}80`,
-      background: tech.symbol.length > 1 ? `linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02))` : 'transparent',
-      padding: tech.symbol.length > 1 ? "0.5rem 0.8rem" : "0.4rem",
-      borderRadius: tech.symbol.length > 1 ? "10px" : "50%",
-      border: tech.symbol.length > 1 ? `1px solid rgba(255, 255, 255, 0.15)` : 'none',
-      backdropFilter: tech.symbol.length > 1 ? "blur(15px)" : 'none',
-      fontFamily: tech.symbol.length > 1 ? "'Inter', -apple-system, sans-serif" : 'inherit',
-      boxShadow: tech.symbol.length > 1
-        ? `0 4px 15px rgba(0, 0, 0, 0.1), 0 0 10px ${tech.color}30`
-        : `0 0 15px ${tech.color}40`,
+      background: `linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02))`,
+      padding: "0.8rem",
+      borderRadius: "12px",
+      border: `1px solid rgba(255, 255, 255, 0.15)`,
+      backdropFilter: "blur(15px)",
+      boxShadow: `0 4px 15px rgba(0, 0, 0, 0.1), 0 0 10px ${tech.color}30`,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
     }}
   >
-    {tech.symbol}
+    {tech.icon ? (
+      <img
+        src={tech.icon}
+        alt={tech.name}
+        style={{
+          width: "32px",
+          height: "32px",
+          filter: `drop-shadow(0 0 8px ${tech.color}80)`,
+          transition: "all 0.3s ease",
+        }}
+      />
+    ) : (
+      <div
+        style={{
+          fontSize: "0.7rem",
+          fontWeight: "700",
+          color: tech.color,
+          textAlign: "center",
+          textShadow: `0 0 8px ${tech.color}80`,
+          lineHeight: "1.2",
+          maxWidth: "32px",
+          overflow: "hidden",
+          textOverflow: "ellipsis",
+        }}
+      >
+        {tech.name.length > 6 ? tech.name.substring(0, 4) + "..." : tech.name}
+      </div>
+    )}
   </motion.div>
 );
 
@@ -117,14 +187,69 @@ const Particle = ({ index }) => (
   />
 );
 
+// Function to shuffle array
+const shuffleArray = (array) => {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+};
+
+// Function to generate random positions
+const generateRandomPositions = (count) => {
+  return Array.from({ length: count }, () => ({
+    left: Math.random() * 80 + 10, // 10% to 90% from left
+    top: Math.random() * 60 + 20,  // 20% to 80% from top
+  }));
+};
+
 export default function Hero() {
   const [currentSkill, setCurrentSkill] = useState(0);
+  const [shuffledTechStack, setShuffledTechStack] = useState([]);
+  const [randomPositions, setRandomPositions] = useState([]);
+  const [animationKey, setAnimationKey] = useState(0);
+
+  // Function to get a random tech item
+  const getRandomTech = () => {
+    return techStack[Math.floor(Math.random() * techStack.length)];
+  };
+
+  // Function to get 7 unique random tech items
+  const getUniqueRandomTech = (count = 7) => {
+    const shuffled = shuffleArray(techStack);
+    return shuffled.slice(0, count);
+  };
+
+  // Function to regenerate tech stack with new random items
+  const regenerateTechStack = () => {
+    const newTechStack = getUniqueRandomTech(7);
+    const newPositions = generateRandomPositions(7);
+    setShuffledTechStack(newTechStack);
+    setRandomPositions(newPositions);
+    setAnimationKey(prev => prev + 1); // Force re-render with new key
+  };
+
+  // Handle when animation cycle completes
+  const handleAnimationComplete = () => {
+    // Wait a bit before starting new cycle
+    setTimeout(() => {
+      regenerateTechStack();
+    }, 1000);
+  };
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    // Initialize with 7 random tech items
+    regenerateTechStack();
+
+    const skillInterval = setInterval(() => {
       setCurrentSkill((prev) => (prev + 1) % skills.length);
     }, 3000);
-    return () => clearInterval(interval);
+
+    return () => {
+      clearInterval(skillInterval);
+    };
   }, []);
 
   return (
@@ -169,12 +294,18 @@ export default function Hero() {
         }}
       />
 
-      {[...Array(6)].map((_, i) => (
+      {[...Array(4)].map((_, i) => (
         <FloatingOrb key={i} index={i} />
       ))}
 
-      {techStack.map((tech, index) => (
-        <TechIcon key={index} tech={tech} index={index} />
+      {shuffledTechStack.map((tech, index) => (
+        <TechIcon
+          key={`${tech.name}-${index}-${animationKey}`}
+          tech={tech}
+          index={index}
+          position={randomPositions[index]}
+          onAnimationComplete={handleAnimationComplete}
+        />
       ))}
 
       <div

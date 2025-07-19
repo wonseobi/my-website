@@ -165,9 +165,6 @@ export default function Projects() {
         </motion.div>
 
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: "2rem", gap: "0.5rem" }}>
-          <div style={{ width: 24, height: 2, background: "rgba(255,255,255,0.3)", borderRadius: 1 }}>
-            <div style={{ width: `${dragProgress * 100}%`, height: "100%", background: "linear-gradient(90deg, #3b82f6, #8b5cf6)", transition: "width 0.3s ease" }} />
-          </div>
           <span style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.8rem", fontWeight: 500 }}>Drag to explore</span>
         </div>
       </section>
