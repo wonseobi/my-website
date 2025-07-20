@@ -20,14 +20,14 @@ const contactItems = [
     accent: "from-blue-500 to-purple-500",
     description: "Send me a message"
   },
-  {
-    icon: FiLinkedin,
-    label: "LinkedIn",
-    value: "linkedin.com/in/yourname",
-    href: "https://www.linkedin.com/feed/",
-    accent: "from-blue-600 to-blue-400",
-    description: "Connect with me"
-  },
+//   {
+//     icon: FiLinkedin,
+//     label: "LinkedIn",
+//     value: "linkedin.com/in/yourname",
+//     href: "https://www.linkedin.com/feed/",
+//     accent: "from-blue-600 to-blue-400",
+//     description: "Connect with me"
+//   },
   {
     icon: FiGithub,
     label: "GitHub",

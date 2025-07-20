@@ -23,7 +23,7 @@ export default function Navbar() {
   const socialLinks = [
     { icon: <FiMail />, href: "mailto:wonseob2207@gmail.com", label: "Email" },
     { icon: <FaGithub />, href: "https://github.com/wonseobi", label: "GitHub" },
-    { icon: <FaLinkedin />, href: "https://linkedin.com/in/yourlinkedin", label: "LinkedIn" },
+    // { icon: <FaLinkedin />, href: "https://linkedin.com/in/yourlinkedin", label: "LinkedIn" },
     { icon: <FaInstagram />, href: "https://www.instagram.com/won.seobi/", label: "Instagram" },
   ];
 
