@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FiMail, FiLinkedin, FiGithub, FiExternalLink } from "react-icons/fi";
+import { FiMail, FiLinkedin, FiGithub, FiExternalLink, FiInstagram } from "react-icons/fi";
 
 const containerVariants = {
   visible: { transition: { staggerChildren: 0.1 } },
@@ -20,21 +20,21 @@ const contactItems = [
     accent: "from-blue-500 to-purple-500",
     description: "Send me a message"
   },
-//   {
-//     icon: FiLinkedin,
-//     label: "LinkedIn",
-//     value: "linkedin.com/in/yourname",
-//     href: "https://www.linkedin.com/feed/",
-//     accent: "from-blue-600 to-blue-400",
-//     description: "Connect with me"
-//   },
+  {
+    icon: FiInstagram,
+    label: "Instagram",
+    value: "@won.seobi",
+    href: "https://www.instagram.com/won.seobi/",
+    accent: "from-pink-500 to-purple-500",
+    description: "Follow my journey"
+  },
   {
     icon: FiGithub,
     label: "GitHub",
     value: "github.com/wonseobi",
     href: "https://github.com/wonseobi",
     accent: "from-gray-700 to-gray-500",
-    description: "My projects and"
+    description: "My projects and code"
   }
 ];
 
@@ -46,7 +46,7 @@ const styles = {
     isolation: "isolate",
   },
   headerText: {
-    fontSize: "3rem",
+    fontSize: "2rem",
     fontWeight: 800,
     background: "linear-gradient(135deg, #fff, #e2e8f0)",
     WebkitBackgroundClip: "text",
@@ -76,7 +76,54 @@ const styles = {
 
 export default function Contact() {
   return (
-    <footer id="contact" style={styles.section}>
+    <>
+      <style jsx>{`
+        @media (max-width: 768px) {
+          .contact-cards {
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 1.5rem !important;
+            padding: 0 1rem !important;
+            margin: 0 auto !important;
+          }
+          .contact-card {
+            max-width: 400px !important;
+            min-width: 300px !important;
+            width: 100% !important;
+            flex: none !important;
+          }
+          .header-text {
+            font-size: 2.2rem !important;
+          }
+          .header-description {
+            font-size: 1rem !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .contact-cards {
+            gap: 1rem !important;
+            padding: 0 0.5rem !important;
+            align-items: center !important;
+            justify-content: center !important;
+          }
+          .contact-card {
+            padding: 1.5rem !important;
+            max-width: 350px !important;
+            min-width: 280px !important;
+            width: 100% !important;
+          }
+          .header-text {
+            font-size: 1.8rem !important;
+          }
+          .header-description {
+            font-size: 0.95rem !important;
+          }
+        }
+      `}</style>
+
+      <footer id="contact" style={styles.section}>
       {/* Subtle section overlay */}
       <div style={{
         position: "absolute",
@@ -100,6 +147,7 @@ export default function Contact() {
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
+            className="header-text"
             style={styles.headerText}
           >
             Let's Connect
@@ -109,6 +157,7 @@ export default function Contact() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
+            className="header-description"
             style={{
               color: "rgba(255,255,255,0.7)",
               fontSize: "1.1rem",
@@ -117,8 +166,7 @@ export default function Contact() {
               lineHeight: "1.6"
             }}
           >
-
-            Ready to collaborate or just want to say hello? I'd love to hear from you!
+            Ready to collaborate? I'd love to hear from you!
           </motion.p>
         </div>
 
@@ -128,11 +176,13 @@ export default function Contact() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
+          className="contact-cards"
           style={{
             display: "flex",
             flexDirection: "row",
             flexWrap: "wrap",
             justifyContent: "center",
+            alignItems: "center",
             gap: "2rem",
             marginBottom: "2rem",
             padding: "0 2rem",
@@ -152,12 +202,15 @@ export default function Contact() {
                 scale: 1.02,
                 transition: { duration: 0.15 }
               }}
+              className="contact-card"
               style={{
                 ...styles.contactCard,
                 textDecoration: "none",
                 color: "inherit",
-                width: "340px", // Fixed width for consistent sizing
-                flex: "0 0 auto" // Prevent stretching
+                width: "100%",
+                maxWidth: "340px",
+                minWidth: "280px",
+                flex: "1 1 300px"
               }}
             >
               {/* Accent line */}
@@ -251,5 +304,6 @@ export default function Contact() {
         </motion.div>
       </div>
     </footer>
+    </>
   );
 }

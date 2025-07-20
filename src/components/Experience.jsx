@@ -73,24 +73,24 @@ const experiences = [
     companyColor: "#f16363ff"
   },
   {
-    id: 1,
-    title: "Fullstack & Mobile Developer",
-    company: "Certerus",
-    location: "Monterrey, Mexico",
-    period: "JAN 2025 - JAN 2027",
-    type: "Full-time",
-    description: "Developed mobile and web solutions that enabled new revenue streams and improved business operations.",
-    details: [
-      "Led development of the company's mobile app using React Native, launching a new business line.",
-      "Designed and maintained RESTful APIs using JavaScript and PHP for both web and mobile platforms.",
-      "Started as a WordPress web developer, building responsive and dynamic websites.",
-      "Quickly transitioned into fullstack roles handling impactful projects across departments.",
-      "Contributed to business growth through rapid development and technical innovation."
-    ],
-    technologies: ["React Native", "JavaScript", "PHP", "REST APIs", "WordPress"],
-    accent: "from-blue-500 to-purple-500",
-    companyColor: "#4b46e5ff"
-  }
+  id: 1,
+  title: "Fullstack & Mobile Developer",
+  company: "Certerus",
+  location: "Monterrey, Mexico",
+  period: "JAN 2025 - Present",
+  type: "Full-time",
+  description: "Developed mobile and web solutions that enabled new revenue streams and improved business operations.",
+  details: [
+    "Led development of the company's mobile app using React Native, launching a new business line.",
+    "Designed and maintained RESTful APIs using JavaScript and PHP for both web and mobile platforms.",
+    "Started as a WordPress web developer, building responsive and dynamic websites.",
+    "Quickly transitioned into fullstack roles handling impactful projects across departments.",
+    "Contributed to business growth through rapid development and technical innovation."
+  ],
+  technologies: ["React Native", "JavaScript", "PHP", "REST APIs", "WordPress", "HTML/CSS"],
+  accent: "from-blue-500 to-purple-500",
+  companyColor: "#4b46e5ff"
+}
 ];
 
 
@@ -109,7 +109,7 @@ const styles = {
     zIndex: 1,
   },
   headerText: {
-    fontSize: "3rem",
+    fontSize: "2.2rem",
     fontWeight: 800,
     background: "linear-gradient(135deg, #fff, #e2e8f0)",
     WebkitBackgroundClip: "text",
@@ -410,6 +410,16 @@ export default function Experience() {
         }
 
         @media (max-width: 768px) {
+          .container {
+            padding: 0 1rem !important;
+          }
+          .header-text {
+            font-size: 2.2rem !important;
+          }
+          .subtitle {
+            font-size: 1rem !important;
+            margin-bottom: 2rem !important;
+          }
           .content-header {
             text-align: center !important;
           }
@@ -421,22 +431,46 @@ export default function Experience() {
           .content-meta {
             flex-direction: column !important;
             gap: 1rem !important;
+            align-items: flex-start !important;
           }
           .tech-grid {
             justify-content: center !important;
           }
+          .experience-list {
+            flex-direction: column !important;
+            overflow-x: visible !important;
+          }
+          .experience-item {
+            min-width: unset !important;
+            width: 100% !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .header-text {
+            font-size: 1.8rem !important;
+          }
+          .content-title {
+            font-size: 1.3rem !important;
+          }
+          .content-meta > div {
+            font-size: 0.9rem !important;
+          }
+          .content-description {
+            font-size: 0.95rem !important;
+          }
         }
       `}</style>
 
-      <div style={styles.container}>
+      <div className="container" style={styles.container}>
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           style={{ textAlign: "center", marginBottom: "4rem" }}
         >
-          <h2 style={styles.headerText}>Professional Experience</h2>
-          <p style={styles.subtitle}>
+          <h2 className="header-text" style={styles.headerText}>Professional Experience</h2>
+          <p className="subtitle" style={styles.subtitle}>
             My journey through the tech industry • Click on any company to explore
           </p>
         </motion.div>
@@ -447,6 +481,7 @@ export default function Experience() {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
+            className="sidebar"
             style={styles.sidebar}
           >
             <div style={styles.sidebarHeader}>
@@ -527,8 +562,8 @@ export default function Experience() {
                     borderRadius: "1.5rem 1.5rem 0 0",
                   }} />
 
-                  <div style={styles.contentHeader}>
-                    <h3 style={styles.contentTitle}>
+                  <div className="content-header" style={styles.contentHeader}>
+                    <h3 className="content-title" style={styles.contentTitle}>
                       {selectedExperience.title}
                       <span style={{
                         fontSize: "1rem",
@@ -549,7 +584,7 @@ export default function Experience() {
                       @ {selectedExperience.company}
                     </h4>
 
-                    <div style={styles.contentMeta}>
+                    <div className="content-meta" style={styles.contentMeta}>
                       <div style={styles.contentMetaItem}>
                         <FiCalendar size={16} />
                         <span>{selectedExperience.period}</span>
@@ -560,7 +595,7 @@ export default function Experience() {
                       </div>
                     </div>
 
-                     <div style={{
+                     <div className="content-description" style={{
                       ...styles.contentDescription,
                       borderLeft: `3px solid ${selectedExperience.companyColor}`,
                       paddingLeft: '1em',
@@ -578,7 +613,7 @@ export default function Experience() {
                     ))}
                   </ul>
 
-                  <div style={styles.techGrid}>
+                  <div className="tech-grid" style={styles.techGrid}>
                     {selectedExperience.technologies.map((tech, idx) => (
                       <span key={idx} className="tech-tag" style={styles.techTag}>
                         {tech}

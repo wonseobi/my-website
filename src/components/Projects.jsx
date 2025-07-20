@@ -21,23 +21,86 @@ const itemVariants = {
 };
 
 const projects = [
-  { title: "📱 Official Certerus App", desc: "Mobile app for securely managing domains and websites crossplatform for iOS/Android.", img: certerusImg, tags: ["React Native", "Expo Go", "RESTful APIs"], accent: "from-red-500 to-green-500", url:"https://github.com/wonseobi/Certerus-App" },
-{
-  title: "🏠 Inmotrev Real Estate",
-  desc: "Modern and minimal Real Estate site with property listings and support, for a seamless user experience.",
-  img: inmotrevImg,
-  tags: ["JavaScript", "PHP", "Wordpress"],
-  accent: "from-blue-500 to-cyan-400",
-  url: "https://github.com/yourusername/inmotrev-realestate"
-},
-  { title: "🎄 Luces y Novedades", desc: "Website showcasing holiday decorations with appealing visuals and smooth user experience.", img: lucesImg, tags: ["JavaScript", "Bootstrap", "HTML/CSS"], accent: "from-blue-500 to-purple-500", url:"https://luces.sitios.pro/" },
-  { title: "📍 Nearby", desc: "Web app for discovering local events, concerts, and cultural experiences with easy navigation.", img: nearbyImg, tags: ["PHP", "JavaScript", "Laravel"], accent: "from-pink-500 to-red-500", url:"https://nortips4trips.com/" },
-  { title: "🧭 Flowme", desc: "Platform for managing teams, projects, and tasks to improve collaboration and productivity.", img: flowmeImg, tags: ["JavaScript", "MySQL", "RESTful APIs"], accent: "from-sky-500 to-indigo-500", url:"https://flowme.work/" },
-  { title: "🔧 Aztec Plumbing", desc: "Landing page highlighting plumbing services and quality tools for residential and commercial clients.", img: aztecplumbingImg, tags: ["Wordpress", "Figma", "JavaScript"], accent: "from-blue-600 to-teal-400", url:"https://aztec-plumbing.com/conocenos/" },
-  { title: "🏨 Hotel Fiesta Versalles", desc: "Hotel website featuring easy reservation booking and an accessible, user-friendly interface.", img: hotelfiestaImg, tags: ["React", "Booking System", "Accessibility"], accent: "from-yellow-500 to-red-500", url:"https://hotelfiestaversalles.com.mx/" },
-  { title: "🏗️ Plaforama", desc: "E-commerce site for construction materials with user login, cart, and integrated customer support.", img: plaforamaImg, tags: ["PHP", "MySQL", "Laravel"], accent: "from-orange-500 to-yellow-500", url:"https://plaforama.com/?srsltid=AfmBOooC5H8zcimxaXrnJxjw9N0uybTlokXlef8O12NncHhAysq3dp8z?srsltid=AfmBOooC5H8zcimxaXrnJxjw9N0uybTlokXlef8O12NncHhAysq3dp8z" },
-  { title: "🛡️ Securlife", desc: "Website for personal protection services offering trained security staff, civil defense, and military-grade equipment.", img: securlifeImg, tags: ["JavaScript", "MySQL", "Figma"], accent: "from-gray-700 to-red-600", url:"https://securlife.com.mx/" },
-  { title: "🌅 Casa Rooftop Geovana", desc: "Reservation site for a scenic Mexican-style rooftop house with a relaxing and inviting atmosphere.", img: casarooftopImg, tags: ["Wordpress", "JavaScript", "HTML/CSS"], accent: "from-amber-500 to-rose-400", url: "https://casarooftopgeovana.com/" },
+  {
+    title: "📱 Official Certerus App",
+    desc: "Mobile app for securely managing domains and websites crossplatform for iOS/Android.",
+    img: certerusImg,
+    tags: ["React Native", "Expo Go", "RESTful APIs"],
+    accent: "from-red-500 to-green-500",
+    url: "https://github.com/wonseobi/Certerus-App",
+  },
+  {
+    title: "🏠 Inmotrev Real Estate",
+    desc: "Modern and minimal Real Estate site with property listings and support, for a seamless user experience.",
+    img: inmotrevImg,
+    tags: ["JavaScript", "PHP", "Wordpress"],
+    accent: "from-blue-500 to-cyan-400",
+    url: "https://github.com/yourusername/inmotrev-realestate",
+  },
+  {
+    title: "🎄 Luces y Novedades",
+    desc: "Website showcasing holiday decorations with appealing visuals and smooth user experience.",
+    img: lucesImg,
+    tags: ["JavaScript", "Bootstrap", "HTML/CSS"],
+    accent: "from-blue-500 to-purple-500",
+    url: "https://luces.sitios.pro/",
+  },
+  {
+    title: "📍 Nearby",
+    desc: "Web app for discovering local events, concerts, and cultural experiences with easy navigation.",
+    img: nearbyImg,
+    tags: ["PHP", "JavaScript", "Laravel"],
+    accent: "from-pink-500 to-red-500",
+    url: "https://nortips4trips.com/",
+  },
+  {
+    title: "🧭 Flowme",
+    desc: "Platform for managing teams, projects, and tasks to improve collaboration and productivity.",
+    img: flowmeImg,
+    tags: ["JavaScript", "MySQL", "RESTful APIs"],
+    accent: "from-sky-500 to-indigo-500",
+    url: "https://flowme.work/",
+  },
+  {
+    title: "🔧 Aztec Plumbing",
+    desc: "Landing page highlighting plumbing services and quality tools for residential and commercial clients.",
+    img: aztecplumbingImg,
+    tags: ["Wordpress", "Figma", "JavaScript"],
+    accent: "from-blue-600 to-teal-400",
+    url: "https://aztec-plumbing.com/conocenos/",
+  },
+  {
+    title: "🏨 Hotel Fiesta Versalles",
+    desc: "Hotel website featuring easy reservation booking and an accessible, user-friendly interface.",
+    img: hotelfiestaImg,
+    tags: ["React", "Booking System", "Accessibility"],
+    accent: "from-yellow-500 to-red-500",
+    url: "https://hotelfiestaversalles.com.mx/",
+  },
+  {
+    title: "🏗️ Plaforama",
+    desc: "E-commerce site for construction materials with user login, cart, and integrated customer support.",
+    img: plaforamaImg,
+    tags: ["PHP", "MySQL", "Laravel"],
+    accent: "from-orange-500 to-yellow-500",
+    url: "https://plaforama.com/?srsltid=AfmBOooC5H8zcimxaXrnJxjw9N0uybTlokXlef8O12NncHhAysq3dp8z?srsltid=AfmBOooC5H8zcimxaXrnJxjw9N0uybTlokXlef8O12NncHhAysq3dp8z",
+  },
+  {
+    title: "🛡️ Securlife",
+    desc: "Website for personal protection services offering trained security staff, civil defense, and military-grade equipment.",
+    img: securlifeImg,
+    tags: ["JavaScript", "MySQL", "Figma"],
+    accent: "from-gray-700 to-red-600",
+    url: "https://securlife.com.mx/",
+  },
+  {
+    title: "🌅 Casa Rooftop Geovana",
+    desc: "Reservation site for a scenic Mexican-style rooftop house with a relaxing and inviting atmosphere.",
+    img: casarooftopImg,
+    tags: ["Wordpress", "JavaScript", "HTML/CSS"],
+    accent: "from-amber-500 to-rose-400",
+    url: "https://casarooftopgeovana.com/",
+  },
 ];
 
 const styles = {
@@ -46,26 +109,29 @@ const styles = {
     margin: 0,
     position: "relative",
     isolation: "isolate",
-    // Remove any background-related properties
   },
   card: {
     background: "rgba(255,255,255,0.08)",
-    borderRadius: "1.5rem", minWidth: "340px", maxWidth: "340px",
+    borderRadius: "1.5rem",
+    minWidth: "340px",
+    maxWidth: "340px",
     boxShadow: "0 10px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.1)",
-    display: "flex", flexDirection: "column", overflow: "hidden",
-    cursor: "grab", position: "relative", backdropFilter: "blur(10px)"
-  },
-  headerText: {
-    fontSize: "3rem", fontWeight: 800,
-    background: "linear-gradient(135deg, #fff, #e2e8f0)",
-    WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
-    marginBottom: "1rem", letterSpacing: "-0.02em"
+    display: "flex",
+    flexDirection: "column",
+    overflow: "hidden",
+    cursor: "grab",
+    position: "relative",
+    backdropFilter: "blur(10px)",
   },
   tag: {
-    background: "rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.9)",
-    padding: "0.25rem 0.75rem", borderRadius: "1rem", fontSize: "0.75rem",
-    fontWeight: 500, border: "1px solid rgba(255,255,255,0.2)"
-  }
+    background: "rgba(255,255,255,0.1)",
+    color: "rgba(255,255,255,0.9)",
+    padding: "0.25rem 0.75rem",
+    borderRadius: "1rem",
+    fontSize: "0.75rem",
+    fontWeight: 500,
+    border: "1px solid rgba(255,255,255,0.2)",
+  },
 };
 
 export default function Projects() {
@@ -84,97 +150,266 @@ export default function Projects() {
       }
     }
     updateDragLimits();
-    window.addEventListener('resize', updateDragLimits);
-    return () => window.removeEventListener('resize', updateDragLimits);
+    window.addEventListener("resize", updateDragLimits);
+    return () => window.removeEventListener("resize", updateDragLimits);
   }, []);
 
   return (
     <div id="projects" style={styles.section}>
-      {/* Keep the overlay gradient but make it more subtle */}
-      <div style={{
-        position: "absolute",
-        inset: 0,
-        background: `
-        radial-gradient(circle at 20% 50%, rgba(59,130,246,0.03), transparent),
-        radial-gradient(circle at 80% 20%, rgba(236,72,153,0.03), transparent)
-      `,
-        animation: "float 6s ease-in-out infinite",
-        opacity: 0.4,
-      }} />
+      {/* Subtle animated overlay gradient */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background: `
+            radial-gradient(circle at 20% 50%, rgba(59,130,246,0.03), transparent),
+            radial-gradient(circle at 80% 20%, rgba(236,72,153,0.03), transparent)
+          `,
+          animation: "float 6s ease-in-out infinite",
+          opacity: 0.4,
+        }}
+      />
       <style jsx>{`
         @keyframes float {
-          0%, 100% { transform: translateY(0) rotate(0); }
-          50% { transform: translateY(-10px) rotate(1deg); }
+          0%,
+          100% {
+            transform: translateY(0) rotate(0);
+          }
+          50% {
+            transform: translateY(-10px) rotate(1deg);
+          }
         }
-        *::selection { background: white; color: black; }
+        *::selection {
+          background: white;
+          color: black;
+        }
+
+        /* Media query to reduce left padding on mobile/tablet */
+        @media (max-width: 768px) {
+          .project-list {
+            padding-left: 0.10em !important;
+            padding-right: 0.1em !important;
+            gap: 1rem !important;
+          }
+        }
       `}</style>
 
       <section style={{ padding: 0, position: "relative", zIndex: 1 }}>
         <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-          <motion.h2 initial={{ opacity: 0, y: -20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} style={styles.headerText}>
+          <motion.h2
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            style={{
+              fontSize: "2.2rem",
+              fontWeight: 800,
+              background: "linear-gradient(135deg, #fff, #e2e8f0)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              marginBottom: "0.5rem",
+              letterSpacing: "-0.02em",
+            }}
+          >
             My Featured Projects
           </motion.h2>
-          <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} style={{ color: "rgba(255,255,255,0.7)", fontSize: "1.1rem", maxWidth: 600, margin: "0 auto", lineHeight: "1.6" }}>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            style={{
+              color: "rgba(255,255,255,0.7)",
+              fontSize: "1rem",
+              maxWidth: 600,
+              margin: "0 auto",
+              lineHeight: "1.6",
+              padding: "0 1rem",
+            }}
+          >
             Discover my latest projects • Scroll to explore past and present works
           </motion.p>
         </div>
 
-        <motion.div style={{ overflow: "visible", width: "100%", padding: "1rem 0 2rem" }} ref={containerRef}>
+        <motion.div
+          style={{ overflow: "visible", width: "100%", padding: "1rem 0 2rem" }}
+          ref={containerRef}
+        >
           <motion.ul
+            className="project-list" // <-- Added className here
             ref={listRef}
-            variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}
-            style={{ display: "flex", gap: "2rem", listStyle: "none", padding: 0, margin: 0 }}
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            style={{
+              display: "flex",
+              gap: "2rem",
+              listStyle: "none",
+              padding: "0 2rem", // default padding on large screens
+              margin: 0,
+            }}
             drag="x"
             dragConstraints={dragLimits}
             whileTap={{ cursor: "grabbing" }}
-            onDrag={(e, info) => setDragProgress(Math.min(Math.abs(info.offset.x) / 1000, 1))}
+            onDrag={(e, info) =>
+              setDragProgress(Math.min(Math.abs(info.offset.x) / 1000, 1))
+            }
           >
+            {/* Left space before first card */}
+            <div style={{ minWidth: "1rem" }} />
             {projects.map((p, i) => (
-              <motion.li key={i} variants={itemVariants} whileHover={{ y: -10, scale: 1.01, transition: { duration: 0.15 } }} style={styles.card}>
-                <div style={{ height: "4px", background: `linear-gradient(90deg, ${p.accent})`, position: "absolute", top: 0, left: 0, right: 0, zIndex: 2 }} />
+              <motion.li
+                key={i}
+                variants={itemVariants}
+                whileHover={{ y: -10, scale: 1.01, transition: { duration: 0.15 } }}
+                style={styles.card}
+              >
+                <div
+                  style={{
+                    height: "4px",
+                    background: `linear-gradient(90deg, ${p.accent})`,
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    zIndex: 2,
+                  }}
+                />
                 <div style={{ position: "relative" }}>
-                  <img src={p.img} alt={p.title} draggable={false} style={{ width: "100%", height: 200, objectFit: "cover", borderRadius: "1.5rem 1.5rem 0 0" }} />
-                  <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 60, background: "linear-gradient(to top, rgba(0,0,0,0.6), transparent)" }} />
+                  <img
+                    src={p.img}
+                    alt={p.title}
+                    draggable={false}
+                    style={{
+                      width: "100%",
+                      height: 200,
+                      objectFit: "cover",
+                      borderRadius: "1.5rem 1.5rem 0 0",
+                    }}
+                  />
+                  <div
+                    style={{
+                      position: "absolute",
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                      height: 60,
+                      background: "linear-gradient(to top, rgba(0,0,0,0.6), transparent)",
+                    }}
+                  />
                 </div>
-                <div style={{ padding: "1.5rem", display: "flex", flexDirection: "column", gap: "1rem", flex: 1 }}>
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "0.5rem" }}>
-                        <h3 style={{ fontSize: "1.25rem", fontWeight: 700, color: "#fff", margin: 0 }}>
-                            {p.title}
-                        </h3>
-                        <a
-                        href={p.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{ textDecoration: "none", display: "flex", alignItems: "center", color: "#93c5fd" }}
-                        >
-                        <FiExternalLink
-                            size={18}
-                            color="#dbdbdb"
-                            style={{
-                            transition: "transform 0.15s ease",
-                            }}
-                            onMouseEnter={e => (e.currentTarget.style.transform = "scale(1.2)")}
-                            onMouseLeave={e => (e.currentTarget.style.transform = "scale(1)")}
-                        />
-                        </a>
-                    </div>
-                  <p style={{ color: "rgba(255,255,255,0.8)", fontSize: "0.9rem", lineHeight: "1.5", flex: 1 }}>{p.desc}</p>
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", marginTop: "0rem" }}>
-                    {p.tags.map((t, idx) => <span key={idx} style={styles.tag}>{t}</span>)}
+                <div
+                  style={{
+                    padding: "1.5rem",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "1rem",
+                    flex: 1,
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      gap: "0.5rem",
+                    }}
+                  >
+                    <h3
+                      style={{
+                        fontSize: "1.1rem",
+                        fontWeight: 700,
+                        color: "#fff",
+                        margin: 0,
+                      }}
+                    >
+                      {p.title}
+                    </h3>
+                    <a
+                      href={p.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        textDecoration: "none",
+                        display: "flex",
+                        alignItems: "center",
+                        color: "#93c5fd",
+                      }}
+                    >
+                      <FiExternalLink
+                        size={18}
+                        color="#dbdbdb"
+                        style={{
+                          transition: "transform 0.15s ease",
+                        }}
+                        onMouseEnter={(e) =>
+                          (e.currentTarget.style.transform = "scale(1.2)")
+                        }
+                        onMouseLeave={(e) =>
+                          (e.currentTarget.style.transform = "scale(1)")
+                        }
+                      />
+                    </a>
+                  </div>
+                  <p
+                    style={{
+                      color: "rgba(255,255,255,0.8)",
+                      fontSize: "0.9rem",
+                      lineHeight: "1.5",
+                      flex: 1,
+                    }}
+                  >
+                    {p.desc}
+                  </p>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexWrap: "wrap",
+                      gap: "0.5rem",
+                      marginTop: "0rem",
+                    }}
+                  >
+                    {p.tags.map((t, idx) => (
+                      <span key={idx} style={styles.tag}>
+                        {t}
+                      </span>
+                    ))}
                   </div>
                 </div>
-                <motion.div initial={{ opacity: 0 }} whileHover={{ opacity: 1 }} style={{
-                  position: "absolute", inset: 0,
-                  background: `linear-gradient(135deg, ${p.accent.replace('from-', 'rgba(').replace('to-', 'rgba(').replace('-500', ', 0.1)')})`,
-                  pointerEvents: "none", borderRadius: "1.5rem"
-                }} />
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    background: `linear-gradient(135deg, ${p.accent
+                      .replace("from-", "rgba(")
+                      .replace("to-", "rgba(")
+                      .replace("-500", ", 0.1)")})`,
+                    pointerEvents: "none",
+                    borderRadius: "1.5rem",
+                  }}
+                />
               </motion.li>
             ))}
+            {/* Right space after last card */}
+            <div style={{ minWidth: "1rem" }} />
           </motion.ul>
         </motion.div>
 
-        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: "2rem", gap: "0.5rem" }}>
-          <span style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.8rem", fontWeight: 500 }}>Drag to explore</span>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: "2rem",
+            gap: "0.5rem",
+          }}
+        >
+          <span
+            style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.8rem", fontWeight: 500 }}
+          >
+            Drag to explore
+          </span>
         </div>
       </section>
     </div>

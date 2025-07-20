@@ -35,7 +35,7 @@ const styles = {
     gap: "1.5rem",
   },
   name: {
-    fontSize: "3.5rem",
+    fontSize: "3rem",
     fontWeight: 800,
     background: "linear-gradient(135deg, #fff, #e2e8f0)",
     WebkitBackgroundClip: "text",
@@ -117,6 +117,7 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    flexShrink: 0,
   },
   imageWrapper: {
     position: "relative",
@@ -134,6 +135,7 @@ const styles = {
     height: "100%",
     objectFit: "cover",
     borderRadius: "50%",
+    display: "block",
   },
   gradientRing: {
     position: "absolute",
@@ -217,27 +219,89 @@ export default function About() {
 
         @media (max-width: 768px) {
           .content-wrapper {
-            grid-template-columns: 1fr !important;
+            flex-direction: column !important;
             gap: 2rem !important;
             text-align: center !important;
           }
+
+          .container {
+            padding: 0 1rem !important;
+          }
+
           .name {
             font-size: 2.5rem !important;
           }
+
           .subtitle {
-            font-size: 1.25rem !important;
+            font-size: 1.4rem !important;
           }
+
+          .description {
+            font-size: 1rem !important;
+            max-width: 100% !important;
+          }
+
+          .image-container {
+            order: -1 !important;
+            margin: 0 auto 1rem auto !important;
+          }
+
           .image-wrapper {
             width: 220px !important;
             height: 220px !important;
           }
+
+          .image-wrapper img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            display: block !important;
+          }
+
           .tech-stack-grid {
             grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)) !important;
+            gap: 0.75rem !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .name {
+            font-size: 2rem !important;
+          }
+
+          .subtitle {
+            font-size: 1.2rem !important;
+          }
+
+          .description {
+            font-size: 0.9rem !important;
+          }
+
+          .image-wrapper {
+            width: 180px !important;
+            height: 180px !important;
+          }
+
+          .image-wrapper img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            display: block !important;
+          }
+
+          .tech-stack-grid {
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)) !important;
+            gap: 0.75rem !important;
+          }
+
+          .tech-stack-item {
+            padding: 0.5rem 0.75rem !important;
+            font-size: 0.85rem !important;
           }
         }
       `}</style>
 
-      <div style={styles.container}>
+      <div className="container" style={styles.container}>
         <div className="content-wrapper" style={styles.contentWrapper}>
           {/* Text content */}
           <motion.div
@@ -255,15 +319,16 @@ export default function About() {
             </motion.h1>
 
             <motion.h2
-              variants={{ ...textVariants, transition: { duration: 0.6, delay: 0.2 } }}
+              variants={textVariants}
               className="subtitle"
               style={styles.subtitle}
             >
-              Full-Stack Developer & UI/UX Designer
+              Software Engineer
             </motion.h2>
 
             <motion.p
-              variants={{ ...textVariants, transition: { duration: 0.6, delay: 0.4 } }}
+              variants={textVariants}
+              className="description"
               style={styles.paragraph}
             >
               Hi I'm a passionate Korean Software Engineer living in Mexico having experience, projects, and a desire to create the most up to date websites, applications, and projects using a variety of modern technologies such as the MERN stack, I'm fluent in 4 languages, looking forward to working with you :)
@@ -302,10 +367,11 @@ export default function About() {
             viewport={{ once: true, amount: 0.3 }}
             variants={imageVariants}
             style={styles.imageContainer}
+            className="image-container"
           >
             <div style={styles.gradientRing} />
             <div className="image-wrapper" style={styles.imageWrapper}>
-              <img src={profileImg} alt="Your Name" style={styles.image} />
+              <img src={profileImg} alt="Won Lee" style={styles.image} />
             </div>
 
             {/* Floating elements */}
