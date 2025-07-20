@@ -424,12 +424,12 @@ export default function Hero() {
             fontSize: "1.1rem",
             color: "rgba(255, 255, 255, 0.7)",
             lineHeight: "1.7",
-            maxWidth: "600px",
+            maxWidth: "700px",
             margin: "0 auto 0",
             fontWeight: "400",
           }}
         >
-          I create fast, clean digital experiences that merge cutting-edge tech with intuitive design. Let’s build something exceptional.
+          I create modern, clean, user friendly digital experiences that merge cutting-edge tech with intuitive design. Allow me to build something for you.
         </motion.p>
 
         <motion.div

@@ -61,15 +61,18 @@ const styles = {
     fontSize: "1.1rem",
     lineHeight: "1.7",
     maxWidth: "600px",
+    margin: 0,
+    padding: 0,
   },
   techStackContainer: {
     display: "flex",
     flexDirection: "column",
     gap: "1rem",
-    marginTop: "0.5rem",
+    margin: 0,
+    padding: 0,
   },
   techStackTitle: {
-    fontSize: "1.1rem",
+    fontSize: "1.2rem",
     fontWeight: 600,
     color: "rgba(255,255,255,0.9)",
     margin: 0,
@@ -263,7 +266,7 @@ export default function About() {
               variants={{ ...textVariants, transition: { duration: 0.6, delay: 0.4 } }}
               style={styles.paragraph}
             >
-              I'm a passionate developer with a love for creating beautiful, functional, and user-centered digital experiences. With expertise in modern web technologies and a keen eye for design, I transform ideas into reality through clean code and innovative solutions. I enjoy working on challenging projects that push the boundaries of what's possible on the web.
+              Hi I'm a passionate Korean Software Engineer living in Mexico having experience, projects, and a desire to create the most up to date websites, applications, and projects using a variety of modern technologies such as the MERN stack, I'm fluent in 4 languages, looking forward to working with you :)
             </motion.p>
 
             {/* Tech Stack Section */}
@@ -271,7 +274,7 @@ export default function About() {
               variants={{ ...techStackVariants, transition: { duration: 0.6, delay: 0.6 } }}
               style={styles.techStackContainer}
             >
-              <h3 style={styles.techStackTitle}>Tech Stack</h3>
+              <h3 style={styles.techStackTitle}>My Tech Stack</h3>
               <div className="tech-stack-grid" style={styles.techStackGrid}>
                 {techStack.map((tech, index) => (
                   <motion.div

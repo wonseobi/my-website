@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from "react";
 
 // Image imports
 import certerusImg from "../assets/certerusapp.png";
+import inmotrevImg from "../assets/inmotrev.png";
 import lucesImg from "../assets/luces.png";
 import nearbyImg from "../assets/nearby.png";
 import flowmeImg from "../assets/flowme.png";
@@ -21,6 +22,14 @@ const itemVariants = {
 
 const projects = [
   { title: "📱 Official Certerus App", desc: "Mobile app for securely managing domains and websites crossplatform for iOS/Android.", img: certerusImg, tags: ["React Native", "Expo Go", "RESTful APIs"], accent: "from-red-500 to-green-500", url:"https://github.com/wonseobi/Certerus-App" },
+{
+  title: "🏠 Inmotrev Real Estate",
+  desc: "Modern and minimal Real Estate site with property listings and support, for a seamless user experience.",
+  img: inmotrevImg,
+  tags: ["JavaScript", "PHP", "Wordpress"],
+  accent: "from-blue-500 to-cyan-400",
+  url: "https://github.com/yourusername/inmotrev-realestate"
+},
   { title: "🎄 Luces y Novedades", desc: "Website showcasing holiday decorations with appealing visuals and smooth user experience.", img: lucesImg, tags: ["JavaScript", "Bootstrap", "HTML/CSS"], accent: "from-blue-500 to-purple-500", url:"https://luces.sitios.pro/" },
   { title: "📍 Nearby", desc: "Web app for discovering local events, concerts, and cultural experiences with easy navigation.", img: nearbyImg, tags: ["PHP", "JavaScript", "Laravel"], accent: "from-pink-500 to-red-500", url:"https://nortips4trips.com/" },
   { title: "🧭 Flowme", desc: "Platform for managing teams, projects, and tasks to improve collaboration and productivity.", img: flowmeImg, tags: ["JavaScript", "MySQL", "RESTful APIs"], accent: "from-sky-500 to-indigo-500", url:"https://flowme.work/" },

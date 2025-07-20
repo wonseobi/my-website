@@ -19,62 +19,80 @@ const contentVariants = {
 
 const experiences = [
   {
-  id: 1,
-  title: "Fullstack & Mobile Developer",
-  company: "Certerus",
-  location: "Monterrey, Mexico",
-  period: "JAN 2025 - JAN 2027",
-  type: "Full-time",
-  description: "Developed mobile and web solutions that enabled new revenue streams and improved business operations.",
-  details: [
-    "Led development of the company's mobile app using React Native, launching a new business line",
-    "Designed and maintained RESTful APIs using JavaScript and PHP for both web and mobile platforms",
-    "Started as a WordPress web developer, building responsive and dynamic websites",
-    "Quickly transitioned into fullstack roles handling impactful projects across departments",
-    "Contributed to business growth through rapid development and technical innovation"
-  ],
-  technologies: ["React Native", "JavaScript", "PHP", "REST APIs", "WordPress"],
-  accent: "from-blue-500 to-purple-500",
-  companyColor: "#4F46E5"
-},
-{
-  id: 2,
-  title: "Frontend Developer Intern",
-  company: "Cash App",
-  location: "Remote, USA",
-  period: "JUN 2023 - JAN 2024",
-  type: "Internship",
-  description: "Worked on creating modern and responsive user interfaces for a major U.S. banking app.",
-  details: [
-    "Developed user-facing features with JavaScript and implemented responsive design practices",
-    "Contributed to frontend development for scalable, production-grade UI systems",
-    "Focused on user experience and performance in financial services contexts",
-    "Collaborated with design and product teams in fast-paced agile workflows"
-  ],
-  technologies: ["JavaScript", "HTML", "CSS", "UX/UI"],
-  accent: "from-green-500 to-blue-500",
-  companyColor: "#00C244"
-},
-{
-  id: 3,
-  title: "Software Engineering Student",
-  company: "UANL",
-  location: "Monterrey, Mexico",
-  period: "2025 – Present",
-  type: "Academic",
-  description: "Bachelor's degree in Software Technology Engineering with a focus on collaboration and technical skills.",
-  details: [
-    "Led and coordinated software projects in academic team settings",
-    "Assisted peers with development work and contributed to team outcomes",
-    "Demonstrated rapid understanding in technical and scientific subjects",
-    "Built foundational knowledge in software development and problem-solving"
-  ],
-  technologies: ["Project Leadership", "Team Collaboration", "Software Fundamentals", "Problem Solving"],
-  accent: "from-yellow-500 to-orange-500",
-  companyColor: "#F59E0B"
-}
-
+    id: 2,
+    title: "Frontend Developer Intern",
+    company: "Cash App",
+    location: "Remote, USA",
+    period: "JUN 2023 - JAN 2024",
+    type: "Internship",
+    description: "Worked on creating modern and responsive user interfaces for a major U.S. banking app.",
+    details: [
+      "Developed user-facing features with JavaScript and implemented responsive design practices.",
+      "Contributed to frontend development for scalable, production-grade UI systems.",
+      "Focused on user experience and performance in financial services contexts.",
+      "Collaborated with design and product teams in fast-paced agile workflows."
+    ],
+    technologies: ["JavaScript", "HTML", "CSS", "UX/UI"],
+    accent: "from-green-500 to-blue-500",
+    companyColor: "#00C244"
+  },
+  {
+    id: 3,
+    title: "Software Engineering Student",
+    company: "UANL",
+    location: "Monterrey, Mexico",
+    period: "2024 – 2025",
+    type: "Academic",
+    description: "Studied Software Engineering with a focus on core development principles, teamwork, and technical growth.",
+    details: [
+      "Participated in team-based academic software projects.",
+      "Supported peers with development work and collaborative problem-solving.",
+      "Built strong foundations in algorithms, programming, and system design.",
+      "Demonstrated adaptability and fast learning in technical subjects."
+    ],
+    technologies: ["Team Collaboration", "Software Fundamentals", "Critical Thinking", "Problem Solving"],
+    accent: "from-yellow-500 to-orange-500",
+    companyColor: "#F59E0B"
+  },
+  {
+    id: 4,
+    title: "Software Engineering Student",
+    company: "IEU University",
+    location: "Mexico",
+    period: "2025 – Present",
+    type: "Academic",
+    description: "Pursuing a Bachelor's in Software Engineering, applying foundational CS concepts directly in a professional setting.",
+    details: [
+      "Learning core Computer Science subjects such as data structures, algorithms, and software architecture.",
+      "Applying academic knowledge to real-world development projects at work.",
+      "Balancing career responsibilities with ongoing academic advancement.",
+      "Developing a strong theoretical base to support long-term growth in the software field."
+    ],
+    technologies: ["Computer Science Fundamentals", "Theory-Practice Integration", "Software Design", "Continuous Learning"],
+    accent: "from-indigo-500 to-blue-500",
+    companyColor: "#f16363ff"
+  },
+  {
+    id: 1,
+    title: "Fullstack & Mobile Developer",
+    company: "Certerus",
+    location: "Monterrey, Mexico",
+    period: "JAN 2025 - JAN 2027",
+    type: "Full-time",
+    description: "Developed mobile and web solutions that enabled new revenue streams and improved business operations.",
+    details: [
+      "Led development of the company's mobile app using React Native, launching a new business line.",
+      "Designed and maintained RESTful APIs using JavaScript and PHP for both web and mobile platforms.",
+      "Started as a WordPress web developer, building responsive and dynamic websites.",
+      "Quickly transitioned into fullstack roles handling impactful projects across departments.",
+      "Contributed to business growth through rapid development and technical innovation."
+    ],
+    technologies: ["React Native", "JavaScript", "PHP", "REST APIs", "WordPress"],
+    accent: "from-blue-500 to-purple-500",
+    companyColor: "#4b46e5ff"
+  }
 ];
+
 
 const styles = {
   section: {
@@ -542,9 +560,13 @@ export default function Experience() {
                       </div>
                     </div>
 
-                    <p style={styles.contentDescription}>
-                      {selectedExperience.description}
-                    </p>
+                     <div style={{
+                      ...styles.contentDescription,
+                      borderLeft: `3px solid ${selectedExperience.companyColor}`,
+                      paddingLeft: '1em',
+                    }}>
+                      "{selectedExperience.description}"
+                    </div>
                   </div>
 
                   <ul style={styles.detailsList}>
@@ -592,7 +614,7 @@ export default function Experience() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <FiDownload size={24} />
+          <FiDownload size={20} />
           Download my CV
         </motion.button>
       </div>
