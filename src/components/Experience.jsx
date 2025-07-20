@@ -327,8 +327,7 @@ export default function Experience() {
   const [selectedExperience, setSelectedExperience] = useState(null);
 
   const handleDownloadCV = () => {
-    // Replace with your actual CV file path
-    const cvUrl = "/path/to/your/cv.pdf";
+    const cvUrl = "/cv.pdf";
     const link = document.createElement("a");
     link.href = cvUrl;
     link.download = "Won_Lee_CV.pdf";
