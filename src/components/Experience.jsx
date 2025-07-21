@@ -327,13 +327,30 @@ export default function Experience() {
   const [selectedExperience, setSelectedExperience] = useState(null);
 
   const handleDownloadCV = () => {
-    const cvUrl = "/cv.pdf";
-    const link = document.createElement("a");
-    link.href = cvUrl;
-    link.download = "Won_Lee_CV.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    try {
+      // Track download event with GTM
+      if (typeof window !== 'undefined' && window.dataLayer) {
+        window.dataLayer.push({
+          'event': 'cv_download',
+          'event_category': 'engagement',
+          'event_label': 'CV Download'
+        });
+      }
+
+      const cvUrl = "/cv.pdf";
+      const link = document.createElement("a");
+      link.href = cvUrl;
+      link.download = "Won_Lee_CV.pdf";
+      link.rel = "noopener noreferrer";
+      link.target = "_blank";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (error) {
+      console.error('Error downloading CV:', error);
+      // Fallback: open CV in new tab if direct download fails
+      window.open("/cv.pdf", "_blank", "noopener,noreferrer");
+    }
   };
 
   return (

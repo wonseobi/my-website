@@ -253,6 +253,10 @@ export default function Navbar() {
         }
 
         @media (max-width: 768px) {
+          .navbar {
+            padding: 0.5rem 1.5rem !important;
+          }
+
           .navbar-brand {
             font-size: 1.3rem;
             padding-right: 0;
@@ -269,6 +273,10 @@ export default function Navbar() {
         }
 
         @media (max-width: 480px) {
+          .navbar {
+            padding: 0.4rem 1rem !important;
+          }
+
           .navbar-brand {
             font-size: 1.2rem;
           }

@@ -12,6 +12,7 @@ import hotelfiestaImg from "../assets/hotelfiesta.png";
 import plaforamaImg from "../assets/plaforama.png";
 import securlifeImg from "../assets/securlife.png";
 import casarooftopImg from "../assets/casarooftop.png";
+import portfolioImg from "../assets/portfolio.png";
 import { FiExternalLink } from "react-icons/fi";
 
 const containerVariants = { visible: { transition: { staggerChildren: 0.05 } }, hidden: {} };
@@ -29,6 +30,14 @@ const projects = [
     accent: "from-red-500 to-green-500",
     url: "https://github.com/wonseobi/Certerus-App",
   },
+    {
+    title: "🌐 My Portfolio Website",
+    desc: "Custom built portfolio site to showcase my work, with responsive design, smooth animations, and clean UX.",
+    img: portfolioImg, // Replace with your actual image variable or path
+    tags: ["React", "Vite", "Tailwind CSS"], // Adjust this list as needed
+    accent: "from-red-500 to-pink-400", // Choose colors to match your theme
+    url: "https://wonseobi.github.io/my-website/",
+    },
   {
     title: "🏠 Inmotrev Real Estate",
     desc: "Modern and minimal Real Estate site with property listings and support, for a seamless user experience.",
