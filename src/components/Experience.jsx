@@ -337,7 +337,7 @@ export default function Experience() {
         });
       }
 
-      const cvUrl = "/cv.pdf";
+      const cvUrl = "/my-website/cv.pdf";
       const link = document.createElement("a");
       link.href = cvUrl;
       link.download = "Won_Lee_CV.pdf";
@@ -349,7 +349,7 @@ export default function Experience() {
     } catch (error) {
       console.error('Error downloading CV:', error);
       // Fallback: open CV in new tab if direct download fails
-      window.open("/cv.pdf", "_blank", "noopener,noreferrer");
+      window.open("/my-website/cv.pdf", "_blank", "noopener,noreferrer");
     }
   };
 
