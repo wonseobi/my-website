@@ -7,12 +7,14 @@ import inmotrevImg from "../assets/inmotrev.png";
 import lucesImg from "../assets/luces.png";
 import nearbyImg from "../assets/nearby.png";
 import flowmeImg from "../assets/flowme.png";
-import aztecplumbingImg from "../assets/aztecplumbing.png";
+import aztecPlumbingLPImg from "../assets/aztecplumbingLP.png";
+import aztecPlumbingImg from "../assets/aztecplumbing.png";
 import hotelfiestaImg from "../assets/hotelfiesta.png";
 import plaforamaImg from "../assets/plaforama.png";
 import securlifeImg from "../assets/securlife.png";
 import casarooftopImg from "../assets/casarooftop.png";
 import portfolioImg from "../assets/portfolio.png";
+import mentorImg from "../assets/mentor.png";
 import { FiExternalLink } from "react-icons/fi";
 
 const containerVariants = { visible: { transition: { staggerChildren: 0.05 } }, hidden: {} };
@@ -29,14 +31,15 @@ const projects = [
     tags: ["React Native", "Expo Go", "RESTful APIs"],
     accent: "from-red-500 to-green-500",
     url: "https://github.com/wonseobi/Certerus-App",
+    featured: true,
   },
     {
-    title: "🌐 My Portfolio Website",
-    desc: "Custom built portfolio site to showcase my work, with responsive design, smooth animations, and clean UX.",
-    img: portfolioImg, // Replace with your actual image variable or path
-    tags: ["React", "Vite", "Tailwind CSS"], // Adjust this list as needed
-    accent: "from-red-500 to-pink-400", // Choose colors to match your theme
-    url: "https://wonseobi.github.io/my-website/",
+    title: "📚 Mentor e-Learning",
+    desc: "Educational platform for individuals and enterprises that develops talent, skills, and workplace culture with a modern interface.",
+    img: mentorImg,
+    tags: ["JavaScript", "Tailwind CSS", "HTML/CSS"],
+    accent: "from-blue-500 to-indigo-400",
+    url: "https://your-mentor-elearning-link.com",
     },
   {
     title: "🏠 Inmotrev Real Estate",
@@ -45,8 +48,9 @@ const projects = [
     tags: ["JavaScript", "PHP", "Wordpress"],
     accent: "from-blue-500 to-cyan-400",
     url: "https://github.com/yourusername/inmotrev-realestate",
+    featured: true,
   },
-  {
+    {
     title: "🎄 Luces y Novedades",
     desc: "Website showcasing holiday decorations with appealing visuals and smooth user experience.",
     img: lucesImg,
@@ -54,6 +58,22 @@ const projects = [
     accent: "from-blue-500 to-purple-500",
     url: "https://luces.sitios.pro/",
   },
+  {
+    title: "🌐 My Portfolio Website",
+    desc: "Custom built portfolio site to showcase my work, with responsive design, smooth animations, and clean UX.",
+    img: portfolioImg,
+    tags: ["React", "Vite", "Tailwind CSS"],
+    accent: "from-red-500 to-pink-400",
+    url: "https://wonseobi.github.io/my-website/",
+  },
+    {
+    title: "🛠️ Aztec Plumbing",
+    desc: "Full website showcasing a range of plumbing tools and equipment with detailed product pages, easy navigation, and a clean, responsive design.",
+    img: aztecPlumbingImg,
+    tags: ["JavaScript", "WordPress", "PHP"],
+    accent: "from-blue-600 to-teal-400",
+    url: "https://aztec-plumbing.com",
+    },
   {
     title: "📍 Nearby",
     desc: "Web app for discovering local events, concerts, and cultural experiences with easy navigation.",
@@ -71,9 +91,9 @@ const projects = [
     url: "https://flowme.work/",
   },
   {
-    title: "🔧 Aztec Plumbing",
+    title: "🔧 Aztec Plumbing LP",
     desc: "Landing page highlighting plumbing services and quality tools for residential and commercial clients.",
-    img: aztecplumbingImg,
+    img: aztecPlumbingLPImg,
     tags: ["Wordpress", "Figma", "JavaScript"],
     accent: "from-blue-600 to-teal-400",
     url: "https://aztec-plumbing.com/conocenos/",
