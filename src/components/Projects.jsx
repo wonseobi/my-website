@@ -39,7 +39,7 @@ const projects = [
     img: mentorImg,
     tags: ["JavaScript", "Tailwind CSS", "HTML/CSS"],
     accent: "from-blue-500 to-indigo-400",
-    url: "https://your-mentor-elearning-link.com",
+    url: "https://mentorelearning.com/sitio/",
     },
   {
     title: "🏠 Inmotrev Real Estate",
