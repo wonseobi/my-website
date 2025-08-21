@@ -47,7 +47,7 @@ const projects = [
     img: inmotrevImg,
     tags: ["JavaScript", "PHP", "Wordpress"],
     accent: "from-blue-500 to-cyan-400",
-    url: "https://github.com/yourusername/inmotrev-realestate",
+    url: "https://inmotrev.com/",
     featured: true,
   },
     {
@@ -56,7 +56,7 @@ const projects = [
     img: lucesImg,
     tags: ["JavaScript", "Bootstrap", "HTML/CSS"],
     accent: "from-blue-500 to-purple-500",
-    url: "https://luces.sitios.pro/",
+    url: "https://lucesynovedades.com.mx/",
   },
   {
     title: "🌐 My Portfolio Website",
