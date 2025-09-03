@@ -169,8 +169,8 @@ const techStackItemVariants = {
 
 export default function About() {
   const techStack = [
-    "React", "Python", "Node.js", "TypeScript", "MongoDB",
-    "Next.js", "JavaScript", "AWS", "Git",
+    "React", "React Native", "Node.js", "TypeScript", "MongoDB",
+    "Next.js", "JavaScript", "Python", "Git",
   ];
 
   return (

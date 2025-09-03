@@ -15,6 +15,8 @@ import securlifeImg from "../assets/securlife.png";
 import casarooftopImg from "../assets/casarooftop.png";
 import portfolioImg from "../assets/portfolio.png";
 import mentorImg from "../assets/mentor.png";
+import weatherlyImg from "../assets/weatherly.png";
+import streakifyImg from "../assets/streakify.png";
 import { FiExternalLink } from "react-icons/fi";
 
 const containerVariants = { visible: { transition: { staggerChildren: 0.05 } }, hidden: {} };
@@ -32,6 +34,7 @@ const projects = [
     accent: "from-red-500 to-green-500",
     url: "https://github.com/wonseobi/Certerus-App",
     featured: true,
+    category: "app",
   },
     {
     title: "📚 Mentor e-Learning",
@@ -40,7 +43,29 @@ const projects = [
     tags: ["JavaScript", "Tailwind CSS", "HTML/CSS"],
     accent: "from-blue-500 to-indigo-400",
     url: "https://mentorelearning.com/sitio/",
+    category: "website",
+  },
+  {
+    title: "🔥 Streakify",
+    desc: "Habit tracking app designed to build consistency with streaks, reminders, and progress visualization.",
+    img: streakifyImg,
+    tags: ["React Native", "Expo", "AsyncStorage"],
+    accent: "from-orange-400 to-pink-600",
+    url: "https://github.com/wonseobi/Streakify",
+    featured: true,
+    category: "app",
     },
+    {
+    title: "🌦️ Weatherly App",
+    desc: "Cross-platform mobile app providing real-time weather forecasts with a modern and intuitive UI integrated with OpenWeather API for real data display.",
+    img: weatherlyImg,
+    tags: ["React Native", "Expo Go", "RESTful APIs"],
+    accent: "from-sky-400 to-blue-600",
+    url: "https://github.com/wonseobi/Weatherly",
+    featured: true,
+    category: "app",
+    },
+
   {
     title: "🏠 Inmotrev Real Estate",
     desc: "Modern and minimal Real Estate site with property listings and support, for a seamless user experience.",
@@ -49,14 +74,16 @@ const projects = [
     accent: "from-blue-500 to-cyan-400",
     url: "https://inmotrev.com/",
     featured: true,
+    category: "website",
   },
-    {
+  {
     title: "🎄 Luces y Novedades",
     desc: "Website showcasing holiday decorations with appealing visuals and smooth user experience.",
     img: lucesImg,
     tags: ["JavaScript", "Bootstrap", "HTML/CSS"],
     accent: "from-blue-500 to-purple-500",
     url: "https://lucesynovedades.com.mx/",
+    category: "website",
   },
   {
     title: "🌐 My Portfolio Website",
@@ -65,15 +92,17 @@ const projects = [
     tags: ["React", "Vite", "Tailwind CSS"],
     accent: "from-red-500 to-pink-400",
     url: "https://wonseobi.github.io/my-website/",
+    category: "website",
   },
-    {
+  {
     title: "🛠️ Aztec Plumbing",
     desc: "Full website showcasing a range of plumbing tools and equipment with detailed product pages, easy navigation, and a clean, responsive design.",
     img: aztecPlumbingImg,
     tags: ["JavaScript", "WordPress", "PHP"],
     accent: "from-blue-600 to-teal-400",
     url: "https://aztec-plumbing.com",
-    },
+    category: "website",
+  },
   {
     title: "📍 Nearby",
     desc: "Web app for discovering local events, concerts, and cultural experiences with easy navigation.",
@@ -81,6 +110,7 @@ const projects = [
     tags: ["PHP", "JavaScript", "Laravel"],
     accent: "from-pink-500 to-red-500",
     url: "https://nortips4trips.com/",
+    category: "website",
   },
   {
     title: "🧭 Flowme",
@@ -89,6 +119,7 @@ const projects = [
     tags: ["JavaScript", "MySQL", "RESTful APIs"],
     accent: "from-sky-500 to-indigo-500",
     url: "https://flowme.work/",
+    category: "website",
   },
   {
     title: "🔧 Aztec Plumbing LP",
@@ -97,14 +128,16 @@ const projects = [
     tags: ["Wordpress", "Figma", "JavaScript"],
     accent: "from-blue-600 to-teal-400",
     url: "https://aztec-plumbing.com/conocenos/",
+    category: "website",
   },
   {
     title: "🏨 Hotel Fiesta Versalles",
     desc: "Hotel website featuring easy reservation booking and an accessible, user-friendly interface.",
     img: hotelfiestaImg,
-    tags: ["React", "Booking System", "Accessibility"],
+    tags: ["React", "HTML/CSS", "MySQL"],
     accent: "from-yellow-500 to-red-500",
     url: "https://hotelfiestaversalles.com.mx/",
+    category: "website",
   },
   {
     title: "🏗️ Plaforama",
@@ -113,6 +146,7 @@ const projects = [
     tags: ["PHP", "MySQL", "Laravel"],
     accent: "from-orange-500 to-yellow-500",
     url: "https://plaforama.com/?srsltid=AfmBOooC5H8zcimxaXrnJxjw9N0uybTlokXlef8O12NncHhAysq3dp8z?srsltid=AfmBOooC5H8zcimxaXrnJxjw9N0uybTlokXlef8O12NncHhAysq3dp8z",
+    category: "website",
   },
   {
     title: "🛡️ Securlife",
@@ -121,6 +155,7 @@ const projects = [
     tags: ["JavaScript", "MySQL", "Figma"],
     accent: "from-gray-700 to-red-600",
     url: "https://securlife.com.mx/",
+    category: "website",
   },
   {
     title: "🌅 Casa Rooftop Geovana",
@@ -129,6 +164,7 @@ const projects = [
     tags: ["Wordpress", "JavaScript", "HTML/CSS"],
     accent: "from-amber-500 to-rose-400",
     url: "https://casarooftopgeovana.com/",
+    category: "website",
   },
 ];
 
@@ -161,13 +197,43 @@ const styles = {
     fontWeight: 500,
     border: "1px solid rgba(255,255,255,0.2)",
   },
+  filterButton: {
+    padding: "0.75rem 1.5rem",
+    borderRadius: "2rem",
+    border: "1px solid rgba(255,255,255,0.2)",
+    background: "rgba(255,255,255,0.05)",
+    color: "rgba(255,255,255,0.7)",
+    fontSize: "0.9rem",
+    fontWeight: 600,
+    cursor: "pointer",
+    transition: "all 0.3s ease",
+    backdropFilter: "blur(10px)",
+  },
+  activeFilterButton: {
+    background: "linear-gradient(135deg, rgba(59,130,246,0.3), rgba(147,197,253,0.3))",
+    color: "#fff",
+    border: "1px solid rgba(59,130,246,0.5)",
+    boxShadow: "0 4px 20px rgba(59,130,246,0.2)",
+  },
 };
 
 export default function Projects() {
   const [dragProgress, setDragProgress] = useState(0);
   const [dragLimits, setDragLimits] = useState({ left: 0, right: 0 });
+  const [activeFilter, setActiveFilter] = useState("all");
   const containerRef = useRef(null);
   const listRef = useRef(null);
+
+  const filteredProjects = projects.filter(project => {
+    if (activeFilter === "all") return true;
+    return project.category === activeFilter;
+  });
+
+  const filterOptions = [
+    { key: "all", label: "All Projects", count: projects.length },
+    { key: "website", label: "Websites", count: projects.filter(p => p.category === "website").length },
+    { key: "app", label: "Apps", count: projects.filter(p => p.category === "app").length },
+  ];
 
   useEffect(() => {
     function updateDragLimits() {
@@ -181,7 +247,7 @@ export default function Projects() {
     updateDragLimits();
     window.addEventListener("resize", updateDragLimits);
     return () => window.removeEventListener("resize", updateDragLimits);
-  }, []);
+  }, [filteredProjects]);
 
   return (
     <div id="projects" style={styles.section}>
@@ -220,6 +286,15 @@ export default function Projects() {
             padding-right: 0.1em !important;
             gap: 1rem !important;
           }
+          .filter-buttons {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem !important;
+          }
+          .filter-button {
+            padding: 0.6rem 1.2rem !important;
+            font-size: 0.85rem !important;
+          }
         }
       `}</style>
 
@@ -249,13 +324,55 @@ export default function Projects() {
               color: "rgba(255,255,255,0.7)",
               fontSize: "1rem",
               maxWidth: 600,
-              margin: "0 auto",
+              margin: "0 auto 2rem",
               lineHeight: "1.6",
               padding: "0 1rem",
             }}
           >
             Discover my latest projects • Scroll to explore past and present works
           </motion.p>
+
+          {/* Filter Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="filter-buttons"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              gap: "1rem",
+              marginBottom: "2rem",
+            }}
+          >
+            {filterOptions.map((option) => (
+              <motion.button
+                key={option.key}
+                className="filter-button"
+                onClick={() => setActiveFilter(option.key)}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                style={{
+                  ...styles.filterButton,
+                  ...(activeFilter === option.key ? styles.activeFilterButton : {}),
+                }}
+              >
+                {option.label}
+                <span
+                  style={{
+                    marginLeft: "0.5rem",
+                    fontSize: "0.8rem",
+                    opacity: 0.8,
+                    background: "rgba(255,255,255,0.1)",
+                    padding: "0.1rem 0.4rem",
+                    borderRadius: "0.5rem",
+                  }}
+                >
+                  {option.count}
+                </span>
+              </motion.button>
+            ))}
+          </motion.div>
         </div>
 
         <motion.div
@@ -263,17 +380,18 @@ export default function Projects() {
           ref={containerRef}
         >
           <motion.ul
-            className="project-list" // <-- Added className here
+            className="project-list"
             ref={listRef}
             variants={containerVariants}
             initial="hidden"
-            whileInView="visible"
+            animate="visible"
+            key={activeFilter} // Re-animate when filter changes
             viewport={{ once: true, amount: 0.3 }}
             style={{
               display: "flex",
               gap: "2rem",
               listStyle: "none",
-              padding: "0 2rem", // default padding on large screens
+              padding: "0 2rem",
               margin: 0,
             }}
             drag="x"
@@ -285,9 +403,9 @@ export default function Projects() {
           >
             {/* Left space before first card */}
             <div style={{ minWidth: "1rem" }} />
-            {projects.map((p, i) => (
+            {filteredProjects.map((p, i) => (
               <motion.li
-                key={i}
+                key={`${activeFilter}-${i}`}
                 variants={itemVariants}
                 whileHover={{ y: -10, scale: 1.01, transition: { duration: 0.15 } }}
                 style={styles.card}
@@ -437,7 +555,10 @@ export default function Projects() {
           <span
             style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.8rem", fontWeight: 500 }}
           >
-            Drag to explore
+            {filteredProjects.length === projects.length
+              ? "Drag to explore"
+              : `Showing ${filteredProjects.length} ${activeFilter === "app" ? "apps" : "websites"} • Drag to explore`
+            }
           </span>
         </div>
       </section>
