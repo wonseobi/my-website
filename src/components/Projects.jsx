@@ -45,16 +45,6 @@ const projects = [
     url: "https://mentorelearning.com/sitio/",
     category: "website",
   },
-  {
-    title: "🔥 Streakify",
-    desc: "Habit tracking app designed to build consistency with streaks, reminders, and progress visualization.",
-    img: streakifyImg,
-    tags: ["React Native", "Expo", "AsyncStorage"],
-    accent: "from-orange-400 to-pink-600",
-    url: "https://github.com/wonseobi/Streakify",
-    featured: true,
-    category: "app",
-    },
     {
     title: "🌦️ Weatherly App",
     desc: "Cross-platform mobile app providing real-time weather forecasts with a modern and intuitive UI integrated with OpenWeather API for real data display.",
@@ -121,6 +111,16 @@ const projects = [
     url: "https://flowme.work/",
     category: "website",
   },
+    {
+    title: "🔥 Streakify App",
+    desc: "Habit tracking app designed to build consistency with streaks, reminders, and progress visualization.",
+    img: streakifyImg,
+    tags: ["React Native", "Expo", "AsyncStorage"],
+    accent: "from-orange-400 to-pink-600",
+    url: "https://github.com/wonseobi/Streakify",
+    featured: true,
+    category: "app",
+    },
   {
     title: "🔧 Aztec Plumbing LP",
     desc: "Landing page highlighting plumbing services and quality tools for residential and commercial clients.",
