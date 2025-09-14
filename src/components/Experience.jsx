@@ -18,7 +18,25 @@ const contentVariants = {
 };
 
 const experiences = [
-  {
+    {
+    id: 3,
+    title: "Software Engineering Student",
+    company: "UANL",
+    location: "Monterrey, Mexico",
+    period: "2021 – 2025",
+    type: "Academic",
+    description: "Studied Software Engineering with a focus on core development principles, teamwork, and technical growth.",
+    details: [
+      "Participated in team-based academic software projects.",
+      "Supported peers with development work and collaborative problem-solving.",
+      "Built strong foundations in algorithms, programming, and system design.",
+      "Demonstrated adaptability and fast learning in technical subjects."
+    ],
+    technologies: ["Team Collaboration", "Software Fundamentals", "Critical Thinking", "Problem Solving"],
+    accent: "from-yellow-500 to-orange-500",
+    companyColor: "#F59E0B"
+  },
+    {
     id: 2,
     title: "Frontend Developer Intern",
     company: "Cash App",
@@ -36,42 +54,24 @@ const experiences = [
     accent: "from-green-500 to-blue-500",
     companyColor: "#00C244"
   },
-  {
-    id: 3,
-    title: "Software Engineering Student",
-    company: "UANL",
-    location: "Monterrey, Mexico",
-    period: "2024 – 2025",
-    type: "Academic",
-    description: "Studied Software Engineering with a focus on core development principles, teamwork, and technical growth.",
-    details: [
-      "Participated in team-based academic software projects.",
-      "Supported peers with development work and collaborative problem-solving.",
-      "Built strong foundations in algorithms, programming, and system design.",
-      "Demonstrated adaptability and fast learning in technical subjects."
-    ],
-    technologies: ["Team Collaboration", "Software Fundamentals", "Critical Thinking", "Problem Solving"],
-    accent: "from-yellow-500 to-orange-500",
-    companyColor: "#F59E0B"
-  },
-  {
-    id: 4,
-    title: "Software Engineering Student",
-    company: "IEU University",
-    location: "Mexico",
-    period: "2025 – Present",
-    type: "Academic",
-    description: "Pursuing a Bachelor's in Software Engineering, applying foundational CS concepts directly in a professional setting.",
-    details: [
-      "Learning core Computer Science subjects such as data structures, algorithms, and software architecture.",
-      "Applying academic knowledge to real-world development projects at work.",
-      "Balancing career responsibilities with ongoing academic advancement.",
-      "Developing a strong theoretical base to support long-term growth in the software field."
-    ],
-    technologies: ["Computer Science Fundamentals", "Theory-Practice Integration", "Software Design", "Continuous Learning"],
-    accent: "from-indigo-500 to-blue-500",
-    companyColor: "#f16363ff"
-  },
+//   {
+//     id: 4,
+//     title: "Software Engineering Student",
+//     company: "IEU University",
+//     location: "Mexico",
+//     period: "2025 – Present",
+//     type: "Academic",
+//     description: "Pursuing a Bachelor's in Software Engineering, applying foundational CS concepts directly in a professional setting.",
+//     details: [
+//       "Learning core Computer Science subjects such as data structures, algorithms, and software architecture.",
+//       "Applying academic knowledge to real-world development projects at work.",
+//       "Balancing career responsibilities with ongoing academic advancement.",
+//       "Developing a strong theoretical base to support long-term growth in the software field."
+//     ],
+//     technologies: ["Computer Science Fundamentals", "Theory-Practice Integration", "Software Design", "Continuous Learning"],
+//     accent: "from-indigo-500 to-blue-500",
+//     companyColor: "#f16363ff"
+//   },
   {
   id: 1,
   title: "Fullstack & Mobile Developer",

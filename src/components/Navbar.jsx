@@ -2,6 +2,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { FiMail, FiMenu, FiX } from "react-icons/fi";
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { FaCode } from "react-icons/fa6";
+
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -102,8 +104,8 @@ export default function Navbar() {
         }
 
         .navbar-brand {
-          font-weight: 700;
-          font-size: 1.5rem;
+          font-weight: 800;
+          font-size: 1.3rem;
           letter-spacing: -0.02em;
           margin: 0;
           cursor: pointer;
@@ -325,11 +327,13 @@ export default function Navbar() {
             position: "relative",
           }}
         >
+
           <motion.h1
             onClick={scrollToHero}
             className="navbar-brand"
             whileHover={{ scale: 1.05, ease: "easeOut" }}
           >
+
             Won Lee
           </motion.h1>
 

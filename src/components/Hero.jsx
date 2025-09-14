@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import TextType from './TextType';
 
 // Import tech stack icons
 import reactIcon from "../assets/react.png";
@@ -340,30 +341,39 @@ export default function Hero() {
             letterSpacing: "0.05em",
           }}
         >
-          Hello, I'm
         </motion.div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.4, ease }}
-          style={{
-            fontSize: "clamp(3rem, 8vw, 5.5rem)",
-            fontWeight: "800",
-            color: "#ffffff",
-            marginBottom: "1.5rem",
-            letterSpacing: "-0.02em",
-            lineHeight: "1.1",
-            position: "relative",
-          }}
-        >
-          Won Lee
-        </motion.h1>
+        {/* <TextType
+            sequence={["Hi my name is Won Lee"]}
+            speed={100}
+            deleteSpeed={1}
+            loop={false}
+            cursor={false}
+            className="hero-title"
+        /> */}
+
+        <TextType
+            text={["Hi my name is Won Lee", "Welcome to my website", "Take a look around",]}
+            typingSpeed={85}
+            pauseDuration={2500}
+            showCursor={true}
+            cursorCharacter="|"
+
+            style={{
+                fontSize: "clamp(2rem, 8vw, 4rem)",
+                fontWeight: "800",
+                color: "#ffffff",
+                marginBottom: "2rem",
+                letterSpacing: "-0.02em",
+                lineHeight: "1.1",
+                position: "relative",
+            }}
+            />
 
         <motion.div
           initial={{ width: 0 }}
           animate={{ width: "200px" }}
-          transition={{ duration: 0.8, delay: 1.2, ease }}
+          transition={{ duration: 0.8, delay: 2.2, ease }}
           style={{
             height: "4px",
             background: "linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899)",
@@ -422,7 +432,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.8, ease }}
           style={{
             fontSize: "1.1rem",
-            color: "rgba(255, 255, 255, 0.7)",
+            color: "rgba(255, 255, 255, 0.85)",
             lineHeight: "1.7",
             maxWidth: "700px",
             margin: "0 auto 0",
