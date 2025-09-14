@@ -344,18 +344,10 @@ export default function Hero() {
         >
         </motion.div>
 
-        {/* <TextType
-            sequence={["Hi my name is Won Lee"]}
-            speed={100}
-            deleteSpeed={1}
-            loop={false}
-            cursor={false}
-            className="hero-title"
-        /> */}
-
+        {/* Using TextType Component import here */}
         <TextType
             text={["Hi my name is Won Lee", "Welcome to my website", "Take a look around",]}
-            typingSpeed={85}
+            typingSpeed={100}
             pauseDuration={2500}
             showCursor={true}
             cursorCharacter="|"
@@ -374,7 +366,7 @@ export default function Hero() {
         <motion.div
           initial={{ width: 0 }}
           animate={{ width: "200px" }}
-          transition={{ duration: 0.8, delay: 2.2, ease }}
+          transition={{ duration: 0.8, delay: 2.5, ease }}
           style={{
             height: "4px",
             background: "linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899)",
