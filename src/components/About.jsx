@@ -331,7 +331,7 @@ export default function About() {
               className="description"
               style={styles.paragraph}
             >
-              Hi I'm a passionate Korean Software Engineer living in Mexico having experience, projects, and a desire to create the most up to date websites, applications, and projects using a variety of modern technologies such as the MERN stack, I'm fluent in 4 languages, looking forward to working with you :)
+              Hi I'm a passionate Korean Software Engineer living in Mexico having experience, projects, and a desire to create the most up to date websites, applications, and projects using a variety of modern technologies such as the MERN stack, I speak 4 languages, and I look forward to working with you.
             </motion.p>
 
             {/* Tech Stack Section */}

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import TextType from './TextType';
 
+
 // Import tech stack icons
 import reactIcon from "../assets/react.png";
 import javascriptIcon from "../assets/javascript.png";
