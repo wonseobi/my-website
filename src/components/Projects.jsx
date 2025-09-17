@@ -17,6 +17,7 @@ import portfolioImg from "../assets/portfolio.png";
 import mentorImg from "../assets/mentor.png";
 import weatherlyImg from "../assets/weatherly.png";
 import streakifyImg from "../assets/streakify.png";
+import portfolio2Img from "../assets/portfolio2.png";
 import { FiExternalLink } from "react-icons/fi";
 
 const containerVariants = { visible: { transition: { staggerChildren: 0.05 } }, hidden: {} };
@@ -36,6 +37,15 @@ const projects = [
     featured: true,
     category: "app",
   },
+{
+  title: "🎨 Freelanced Design Portfolio",
+  desc: "A portfolio that showcases original concept art, illustrations, and design projects, highlighting creativity, visual storytelling, and professional design skills.",
+  img: portfolio2Img,
+  tags: ["UX/UI", "Prototype", "Figma Design"],
+  accent: "from-purple-500 to-pink-400",
+  url: "https://www.figma.com/proto/lpfSykBVYm94IOaC9Anird/Alfonso-Emanuel-Portfolio-Website?page-id=0%3A1&node-id=2002-2&p=f&viewport=2238%2C74%2C0.4&t=ojVCmnlmo1VRVAkT-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2002%3A2",
+  category: "website",
+},
     {
     title: "📚 Mentor e-Learning",
     desc: "Educational platform for individuals and enterprises that develops talent, skills, and workplace culture with a modern interface.",
