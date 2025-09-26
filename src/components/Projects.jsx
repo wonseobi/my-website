@@ -53,7 +53,7 @@ const projects = [
     img: certerusLPImg,
     tags: ["Figma", "Web Design", "UX/UI"],
     accent: "from-blue-500 to-cyan-400",
-    url: "https://www.figma.com/proto/your-figma-link-here",
+    url: "https://www.figma.com/proto/1OS7IaoRh4Oj40SPSHtw42/Certerus-Landing-Page?page-id=0%3A1&node-id=2-2294&viewport=-5459%2C-2790%2C0.62&t=CdpVO7Ftg1pgwV4X-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2%3A2294",
     category: "website",
   },
   {
