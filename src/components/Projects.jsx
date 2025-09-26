@@ -30,7 +30,7 @@ const itemVariants = {
 const projects = [
   {
     title: "📱 Official Certerus App",
-    desc: "Mobile app for securely managing domains and websites crossplatform for iOS/Android.",
+    desc: "Cross-platform mobile app for managing domains and websites securely with a clean, intuitive interface for iOS and Android.",
     img: certerusImg,
     tags: ["React Native", "Expo Go", "RESTful APIs"],
     accent: "from-red-500 to-green-500",
@@ -38,47 +38,46 @@ const projects = [
     featured: true,
     category: "app",
   },
-    {
+  {
     title: "🎨 Freelanced Design Portfolio",
-    desc: "A portfolio that showcases original concept art, illustrations, and design projects, highlighting creativity, visual storytelling, and professional design skills.",
+    desc: "Portfolio showcasing concept art, illustrations, and UX/UI projects, highlighting creativity and professional design skills.",
     img: portfolio2Img,
     tags: ["UX/UI", "Prototype", "Figma"],
     accent: "from-purple-500 to-pink-400",
     url: "https://www.figma.com/proto/lpfSykBVYm94IOaC9Anird/Alfonso-Emanuel-Portfolio-Website?page-id=0%3A1&node-id=2002-2&p=f&viewport=2238%2C74%2C0.4&t=ojVCmnlmo1VRVAkT-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2002%3A2",
     category: "website",
-    },
-    {
+  },
+  {
     title: "🚀 Certerus Landing Page",
-    desc: "A sleek and modern landing page prototype designed in Figma, focusing on clean layout, engaging visuals, and intuitive user experience for a professional brand presence.",
+    desc: "Modern landing page prototype designed in Figma with clean layouts and intuitive user experience for a professional brand.",
     img: certerusLPImg,
     tags: ["Figma", "Web Design", "UX/UI"],
     accent: "from-blue-500 to-cyan-400",
     url: "https://www.figma.com/proto/your-figma-link-here",
     category: "website",
-    },
-    {
+  },
+  {
     title: "📚 Mentor e-Learning",
-    desc: "Educational platform for individuals and enterprises that develops talent, skills, and workplace culture with a modern interface.",
+    desc: "Platform for skill development and talent management with a modern, easy-to-use interface for learners and enterprises.",
     img: mentorImg,
     tags: ["JavaScript", "Tailwind CSS", "HTML/CSS"],
     accent: "from-blue-500 to-indigo-400",
     url: "https://mentorelearning.com/sitio/",
     category: "website",
   },
-    {
+  {
     title: "🌦️ Weatherly App",
-    desc: "Cross-platform mobile app providing real-time weather forecasts with a modern and intuitive UI integrated with OpenWeather API for real data display.",
+    desc: "Cross-platform app providing real-time weather forecasts with a clean interface and OpenWeather API integration.",
     img: weatherlyImg,
     tags: ["React Native", "Expo Go", "RESTful APIs"],
     accent: "from-sky-400 to-blue-600",
     url: "https://github.com/wonseobi/Weatherly",
     featured: true,
     category: "app",
-    },
-
+  },
   {
     title: "🏠 Inmotrev Real Estate",
-    desc: "Modern and minimal Real Estate site with property listings and support, for a seamless user experience.",
+    desc: "Modern real estate website with property listings, smooth navigation, and interactive features for an engaging experience.",
     img: inmotrevImg,
     tags: ["JavaScript", "PHP", "Wordpress"],
     accent: "from-blue-500 to-cyan-400",
@@ -88,7 +87,7 @@ const projects = [
   },
   {
     title: "🎄 Luces y Novedades",
-    desc: "Website showcasing holiday decorations with appealing visuals and smooth user experience.",
+    desc: "Website showcasing holiday decorations with appealing visuals and smooth, festive interactions.",
     img: lucesImg,
     tags: ["JavaScript", "Bootstrap", "HTML/CSS"],
     accent: "from-blue-500 to-purple-500",
@@ -97,7 +96,7 @@ const projects = [
   },
   {
     title: "🌐 My Portfolio Website",
-    desc: "Custom built portfolio site to showcase my work, with responsive design, smooth animations, and clean UX.",
+    desc: "Custom portfolio site displaying projects with responsive design, smooth animations, and clean UX.",
     img: portfolioImg,
     tags: ["React", "Vite", "Tailwind CSS"],
     accent: "from-red-500 to-pink-400",
@@ -106,7 +105,7 @@ const projects = [
   },
   {
     title: "🛠️ Aztec Plumbing",
-    desc: "Full website showcasing a range of plumbing tools and equipment with detailed product pages, easy navigation, and a clean, responsive design.",
+    desc: "Website showcasing plumbing tools and services with detailed pages, responsive layout, and easy navigation.",
     img: aztecPlumbingImg,
     tags: ["JavaScript", "WordPress", "PHP"],
     accent: "from-blue-600 to-teal-400",
@@ -115,7 +114,7 @@ const projects = [
   },
   {
     title: "📍 Nearby",
-    desc: "Web app for discovering local events, concerts, and cultural experiences with easy navigation.",
+    desc: "Web app for discovering local events and cultural experiences with intuitive navigation.",
     img: nearbyImg,
     tags: ["PHP", "JavaScript", "Laravel"],
     accent: "from-pink-500 to-red-500",
@@ -131,19 +130,19 @@ const projects = [
     url: "https://flowme.work/",
     category: "website",
   },
-    {
+  {
     title: "🔥 Streakify App",
-    desc: "Habit tracking app designed to build consistency with streaks, reminders, and progress visualization.",
+    desc: "Habit tracking app with streaks, reminders, and progress tracking for consistent personal growth.",
     img: streakifyImg,
     tags: ["React Native", "Expo", "AsyncStorage"],
     accent: "from-orange-400 to-pink-600",
     url: "https://github.com/wonseobi/Streakify",
     featured: true,
     category: "app",
-    },
+  },
   {
     title: "🔧 Aztec Plumbing LP",
-    desc: "Landing page highlighting plumbing services and quality tools for residential and commercial clients.",
+    desc: "Landing page highlighting plumbing services and quality tools with a clean and clear design.",
     img: aztecPlumbingLPImg,
     tags: ["Wordpress", "Figma", "JavaScript"],
     accent: "from-blue-600 to-teal-400",
@@ -152,7 +151,7 @@ const projects = [
   },
   {
     title: "🏨 Hotel Fiesta Versalles",
-    desc: "Hotel website featuring easy reservation booking and an accessible, user-friendly interface.",
+    desc: "Hotel website with easy booking, accessible layout, and visually appealing interface.",
     img: hotelfiestaImg,
     tags: ["React", "HTML/CSS", "MySQL"],
     accent: "from-yellow-500 to-red-500",
@@ -161,7 +160,7 @@ const projects = [
   },
   {
     title: "🏗️ Plaforama",
-    desc: "E-commerce site for construction materials with user login, cart, and integrated customer support.",
+    desc: "E-commerce site for construction materials with user login, shopping cart, and integrated support.",
     img: plaforamaImg,
     tags: ["PHP", "MySQL", "Laravel"],
     accent: "from-orange-500 to-yellow-500",
@@ -170,7 +169,7 @@ const projects = [
   },
   {
     title: "🛡️ Securlife",
-    desc: "Website for personal protection services offering trained security staff, civil defense, and military-grade equipment.",
+    desc: "Website for personal protection services featuring trained staff and security solutions with a professional presentation.",
     img: securlifeImg,
     tags: ["JavaScript", "MySQL", "Figma"],
     accent: "from-gray-700 to-red-600",
@@ -179,7 +178,7 @@ const projects = [
   },
   {
     title: "🌅 Casa Rooftop Geovana",
-    desc: "Reservation site for a scenic Mexican-style rooftop house with a relaxing and inviting atmosphere.",
+    desc: "Reservation site for a rooftop house with scenic views, smooth interface, and an inviting user experience.",
     img: casarooftopImg,
     tags: ["Wordpress", "JavaScript", "HTML/CSS"],
     accent: "from-amber-500 to-rose-400",
@@ -187,6 +186,7 @@ const projects = [
     category: "website",
   },
 ];
+
 
 const styles = {
   section: {
