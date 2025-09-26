@@ -1,8 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { FiMail, FiMenu, FiX } from "react-icons/fi";
-import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
-import { FaCode } from "react-icons/fa6";
+import { FaGithub, FaInstagram } from "react-icons/fa";
 
 // Custom Logo Component
 const Logo = ({ className = "" }) => (
@@ -72,9 +71,7 @@ export default function Navbar() {
     setIsMobileMenuOpen(false);
   };
 
-  const handleNavClick = (e) => {
-    setIsMobileMenuOpen(false);
-  };
+  const handleNavClick = () => setIsMobileMenuOpen(false);
 
   const socialLinks = [
     { icon: <FiMail />, href: "mailto:wonseob2207@gmail.com", label: "Email" },
@@ -82,363 +79,54 @@ export default function Navbar() {
     { icon: <FaInstagram />, href: "https://www.instagram.com/won.seobi/", label: "Instagram" },
   ];
 
+  // Simplified mobile menu animation
   const mobileMenuVariants = {
-    closed: {
-      opacity: 0,
-      height: 0,
-      transition: {
-        duration: 0.3,
-        ease: "easeInOut",
-        when: "afterChildren",
-      }
-    },
-    open: {
-      opacity: 1,
-      height: "auto",
-      transition: {
-        duration: 0.3,
-        ease: "easeInOut",
-        when: "beforeChildren",
-        staggerChildren: 0.1,
-      }
-    }
+    closed: { opacity: 0, y: -10, transition: { duration: 0.2, ease: "easeInOut" } },
+    open: { opacity: 1, y: 0, transition: { duration: 0.25, ease: "easeOut" } },
   };
 
   const menuItemVariants = {
-    closed: {
-      opacity: 0,
-      x: -20,
-      transition: { duration: 0.2 }
-    },
-    open: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.3, ease: "easeOut" }
-    }
-  };
-
-  const socialIconVariants = {
-    closed: {
-      opacity: 0,
-      scale: 0.8,
-      transition: { duration: 0.2 }
-    },
-    open: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.3, ease: "easeOut" }
-    }
+    closed: { opacity: 0, y: -5 },
+    open: { opacity: 1, y: 0 },
   };
 
   return (
     <>
       <style jsx>{`
-        /* Reset anchor styles globally */
-        a,
-        a:link,
-        a:visited,
-        a:hover,
-        a:active,
-        a:focus {
-          color: inherit;
-          text-decoration: none;
-        }
+        a, a:link, a:visited, a:hover, a:active, a:focus { color: inherit; text-decoration: none; }
 
-        .navbar {
-          backdrop-filter: blur(24px);
-          -webkit-backdrop-filter: blur(24px);
-          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-          animation: fadeIn 0.6s ease-out;
-          font-family: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-          border-bottom: 1px solid rgba(255,255,255,0.08);
-        }
+        .navbar { backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); animation: fadeIn 0.6s ease-out; font-family: 'Figtree', sans-serif; border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .navbar-brand-container { display: flex; align-items: center; gap: 0.75rem; cursor: pointer; flex: 1; text-align: left; padding-right: 2em !important; }
+        .logo-container { display: flex; align-items: center; justify-content: center; position: relative; }
+        .logo-svg { filter: drop-shadow(0 0 8px rgba(0, 217, 255, 0.3)); transition: all 0.3s ease; }
+        .navbar-brand-container:hover .logo-svg { filter: drop-shadow(0 0 16px rgba(0, 217, 255, 0.5)) drop-shadow(0 0 8px rgba(0, 255, 170, 0.3)); transform: rotate(5deg); }
+        .navbar-brand { font-weight: 700; font-size: 1.4rem; letter-spacing: -0.025em; margin: 0; background: linear-gradient(135deg, #f8fafc 0%, #ffffff 25%, #e2e8f0 50%, #ffffff 75%, #f1f5f9 100%); background-size: 200% 200%; background-position: 0% 50%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+        .navbar-brand-container:hover .navbar-brand { background-position: 100% 50%; transform: translateX(2px); }
+        .menu { display: flex; gap: 2.5rem; justify-content: center; flex: 2; }
+        .menu a { color: rgba(255, 255, 255, 0.85); font-size: 0.95rem; font-weight: 500; padding: 0.75rem 0.5rem; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); cursor: pointer; display: inline-block; position: relative; font-family: 'Figtree', sans-serif; letter-spacing: -0.01em; }
+        .menu a::after { content: ''; position: absolute; bottom: 0.25rem; left: 50%; width: 0; height: 2px; background: linear-gradient(90deg, #60A5FA, #A78BFA); transition: all 0.3s cubic-bezier(0.4,0,0.2,1); transform: translateX(-50%); border-radius: 1px; }
+        .menu a:hover { color: #fff; transform: translateY(-1px); }
+        .menu a:hover::after { width: 100%; }
+        .social-icons { display: flex; gap: 1.5rem; justify-content: flex-end; flex: 1; }
+        .social-icons a { color: rgba(255, 255, 255, 0.8); font-size: 1.25rem; cursor: pointer; display: flex; align-items: center; padding: 0.5rem; border-radius: 8px; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); position: relative; }
+        .social-icons a:hover { color: #fff; transform: translateY(-2px); }
 
-        .navbar-brand-container {
-          display: flex;
-          align-items: center;
-          gap: 0.75rem;
-          cursor: pointer;
-          flex: 1;
-          text-align: left;
-          padding-right: 2em !important;
-        }
-
-        .logo-container {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          position: relative;
-        }
-
-        .logo-svg {
-          filter: drop-shadow(0 0 8px rgba(0, 217, 255, 0.3));
-          transition: all 0.3s ease;
-        }
-
-        .navbar-brand-container:hover .logo-svg {
-          filter: drop-shadow(0 0 16px rgba(0, 217, 255, 0.5)) drop-shadow(0 0 8px rgba(0, 255, 170, 0.3));
-          transform: rotate(5deg);
-        }
-
-        .navbar-brand {
-          font-weight: 700;
-          font-size: 1.4rem;
-          letter-spacing: -0.025em;
-          margin: 0;
-          background: linear-gradient(135deg, #f8fafc 0%, #ffffff 25%, #e2e8f0 50%, #ffffff 75%, #f1f5f9 100%);
-          background-size: 200% 200%;
-          background-position: 0% 50%;
-          -webkit-background-clip: text;
-          background-clip: text;
-          -webkit-text-fill-color: transparent;
-          transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-          font-family: 'Figtree', sans-serif;
-        }
-
-        .navbar-brand-container:hover .navbar-brand {
-          background-position: 100% 50%;
-          transform: translateX(2px);
-        }
-
-        .menu {
-          display: flex;
-          gap: 2.5rem;
-          justify-content: center;
-          flex: 2;
-        }
-
-        .menu a {
-          color: rgba(255, 255, 255, 0.85);
-          text-decoration: none;
-          font-size: 0.95rem;
-          font-weight: 500;
-          padding: 0.75rem 0.5rem;
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          cursor: pointer;
-          display: inline-block;
-          position: relative;
-          font-family: 'Figtree', sans-serif;
-          letter-spacing: -0.01em;
-        }
-
-        .menu a::after {
-          content: '';
-          position: absolute;
-          bottom: 0.25rem;
-          left: 50%;
-          width: 0;
-          height: 2px;
-          background: linear-gradient(90deg, #60A5FA, #A78BFA);
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          transform: translateX(-50%);
-          border-radius: 1px;
-        }
-
-        .menu a:hover {
-          color: #ffffff;
-          transform: translateY(-1px);
-        }
-
-        .menu a:hover::after {
-          width: 100%;
-        }
-
-        .social-icons {
-          display: flex;
-          gap: 1.5rem;
-          justify-content: flex-end;
-          flex: 1;
-        }
-
-        @media (min-width: 768px) {
-          .social-icons {
-            padding-left: 2em;
-          }
-        }
-
-        .social-icons a {
-          color: rgba(255, 255, 255, 0.8);
-          font-size: 1.25rem;
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          padding: 0.5rem;
-          border-radius: 8px;
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          position: relative;
-        }
-
-        .social-icons a::before {
-          content: '';
-          position: absolute;
-          inset: 0;
-          border-radius: 8px;
-          background: linear-gradient(135deg, rgba(96, 165, 250, 0.1), rgba(167, 139, 250, 0.1));
-          opacity: 0;
-          transition: opacity 0.3s ease;
-        }
-
-        .social-icons a:hover {
-          color: #ffffff;
-          transform: translateY(-2px);
-        }
-
-        .social-icons a:hover::before {
-          opacity: 1;
-        }
-
-        .mobile-menu-button {
-          display: none;
-          background: none;
-          border: none;
-          color: rgba(255, 255, 255, 0.85);
-          font-size: 1.5rem;
-          cursor: pointer;
-          padding: 0.625rem;
-          border-radius: 8px;
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          position: relative;
-        }
-
-        .mobile-menu-button::before {
-          content: '';
-          position: absolute;
-          inset: 0;
-          border-radius: 8px;
-          background: rgba(255, 255, 255, 0.05);
-          opacity: 0;
-          transition: opacity 0.3s ease;
-        }
-
-        .mobile-menu-button:hover {
-          color: #ffffff;
-          transform: scale(1.05);
-        }
-
-        .mobile-menu-button:hover::before {
-          opacity: 1;
-        }
-
-        .mobile-menu {
-          position: absolute;
-          top: 100%;
-          left: 0;
-          right: 0;
-          background: rgba(15, 23, 42, 0.98);
-          backdrop-filter: blur(24px);
-          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-          overflow: hidden;
-          z-index: 999;
-          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-        }
-
-        .mobile-menu-content {
-          padding: 1.5rem;
-          max-width: 1200px;
-          margin: 0 auto;
-        }
-
-        .mobile-menu-item {
-          display: block;
-          color: rgba(255, 255, 255, 0.9);
-          text-decoration: none;
-          font-size: 1.1rem;
-          font-weight: 500;
-          padding: 1rem 0;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          cursor: pointer;
-          font-family: 'Figtree', sans-serif;
-          letter-spacing: -0.01em;
-        }
-
-        .mobile-menu-item:hover {
-          color: #ffffff;
-          padding-left: 1.5rem;
-        }
-
-        .mobile-menu-item:last-of-type {
-          border-bottom: none;
-        }
-
-        .mobile-social-icons {
-          display: flex;
-          gap: 2rem;
-          justify-content: center;
-          margin-top: 1.5rem;
-          padding-top: 1.5rem;
-          border-top: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .mobile-social-icon {
-          color: rgba(255, 255, 255, 0.8);
-          font-size: 1.5rem;
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          padding: 0.75rem;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 12px;
-          background: rgba(255, 255, 255, 0.03);
-          border: 1px solid rgba(255, 255, 255, 0.06);
-        }
-
-        .mobile-social-icon:hover {
-          color: #ffffff;
-          transform: translateY(-2px);
-          background: rgba(255, 255, 255, 0.08);
-          border-color: rgba(255, 255, 255, 0.12);
-        }
+        .mobile-menu-button { display: none; background: none; border: none; color: rgba(255,255,255,0.85); font-size: 1.5rem; cursor: pointer; padding: 0.625rem; border-radius: 8px; position: relative; }
+        .mobile-menu { position: absolute; top: 100%; left: 0; right: 0; background: rgba(15,23,42,0.98); backdrop-filter: blur(24px); border-bottom: 1px solid rgba(255,255,255,0.08); overflow: hidden; z-index: 999; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+        .mobile-menu-content { padding: 1.5rem; max-width: 1200px; margin: 0 auto; }
+        .mobile-menu-item { display: block; color: rgba(255,255,255,0.9); font-size: 1.1rem; font-weight: 500; padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); cursor: pointer; font-family: 'Figtree', sans-serif; letter-spacing: -0.01em; }
+        .mobile-menu-item:hover { color: #fff; padding-left: 1.5rem; }
+        .mobile-menu-item:last-of-type { border-bottom: none; }
+        .mobile-social-icons { display: flex; gap: 2rem; justify-content: center; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.08); }
+        .mobile-social-icon { color: rgba(255,255,255,0.8); font-size: 1.5rem; padding: 0.75rem; display: flex; align-items: center; justify-content: center; border-radius: 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); transition: all 0.3s ease; }
+        .mobile-social-icon:hover { color: #fff; transform: translateY(-2px); background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.12); }
 
         @media (max-width: 768px) {
-          .navbar {
-            padding: 0.75rem 1.5rem !important;
-          }
-
-          .navbar-brand {
-            font-size: 1.25rem;
-          }
-
-          .navbar-brand-container {
-            padding-right: 0;
-            gap: 0.625rem;
-          }
-
-          .menu,
-          .social-icons {
-            display: none;
-          }
-
-          .mobile-menu-button {
-            display: block;
-          }
+          .menu, .social-icons { display: none; }
+          .mobile-menu-button { display: block; }
         }
 
-        @media (max-width: 480px) {
-          .navbar {
-            padding: 0.625rem 1rem !important;
-          }
-
-          .navbar-brand {
-            font-size: 1.2rem;
-          }
-
-          .logo-svg {
-            width: 28px;
-            height: 28px;
-          }
-        }
-
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(-10px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
       `}</style>
 
       <motion.nav
@@ -453,12 +141,8 @@ export default function Navbar() {
           right: 0,
           zIndex: 1000,
           padding: "1rem 2rem",
-          background: isScrolled
-            ? "rgba(15, 23, 42, 0.96)"
-            : "rgba(15, 23, 42, 0.85)",
-          boxShadow: isScrolled
-            ? "0 12px 40px rgba(0,0,0,0.35)"
-            : "0 4px 20px rgba(0,0,0,0.15)",
+          background: isScrolled ? "rgba(15, 23, 42, 0.96)" : "rgba(15, 23, 42, 0.85)",
+          boxShadow: isScrolled ? "0 12px 40px rgba(0,0,0,0.35)" : "0 4px 20px rgba(0,0,0,0.15)",
         }}
       >
         <div
@@ -489,10 +173,7 @@ export default function Navbar() {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.1 * index, ease: "easeOut" }}
-                whileHover={{
-                  y: -1,
-                  transition: { duration: 0.2 },
-                }}
+                whileHover={{ y: -1, transition: { duration: 0.2 } }}
                 onClick={handleNavClick}
               >
                 {item}
@@ -511,11 +192,7 @@ export default function Navbar() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4, delay: 0.3 + 0.1 * index, ease: "easeOut" }}
-                whileHover={{
-                  y: -2,
-                  scale: 1.05,
-                  transition: { duration: 0.2 }
-                }}
+                whileHover={{ y: -2, scale: 1.05, transition: { duration: 0.2 } }}
                 whileTap={{ scale: 0.95 }}
               >
                 {icon}
@@ -523,29 +200,40 @@ export default function Navbar() {
             ))}
           </div>
 
+          {/* Mobile menu button */}
           <motion.button
             className="mobile-menu-button"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle mobile menu"
-            whileTap={{ scale: 0.95 }}
-            animate={{
-              rotate: isMobileMenuOpen ? 90 : 0,
-            }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+            whileTap={{ scale: 0.9 }}
           >
-            <motion.div
-              initial={false}
-              animate={{
-                rotate: isMobileMenuOpen ? 180 : 0,
-                scale: isMobileMenuOpen ? 1.1 : 1,
-              }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-            >
-              {isMobileMenuOpen ? <FiX /> : <FiMenu />}
-            </motion.div>
+            <AnimatePresence mode="wait" initial={false}>
+              {isMobileMenuOpen ? (
+                <motion.div
+                  key="close"
+                  initial={{ opacity: 0, rotate: -90 }}
+                  animate={{ opacity: 1, rotate: 0 }}
+                  exit={{ opacity: 0, rotate: 90 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <FiX />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="open"
+                  initial={{ opacity: 0, rotate: 90 }}
+                  animate={{ opacity: 1, rotate: 0 }}
+                  exit={{ opacity: 0, rotate: -90 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <FiMenu />
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.button>
         </div>
 
+        {/* Mobile menu */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
@@ -556,54 +244,32 @@ export default function Navbar() {
               exit="closed"
             >
               <div className="mobile-menu-content">
-                {["Projects", "Experience", "About", "Contact"].map((item, index) => (
+                {["Projects", "Experience", "About", "Contact"].map((item) => (
                   <motion.a
                     key={item}
                     href={`#${item.toLowerCase()}`}
                     onClick={handleNavClick}
                     className="mobile-menu-item"
                     variants={menuItemVariants}
-                    custom={index}
-                    whileHover={{ x: 15, transition: { duration: 0.2 } }}
-                    whileTap={{ scale: 0.98 }}
                   >
                     {item}
                   </motion.a>
                 ))}
 
-                <motion.div
-                  className="mobile-social-icons"
-                  variants={{
-                    closed: { opacity: 0 },
-                    open: {
-                      opacity: 1,
-                      transition: {
-                        delay: 0.4,
-                        staggerChildren: 0.1,
-                      }
-                    }
-                  }}
-                >
-                  {socialLinks.map(({ icon, href, label }, index) => (
-                    <motion.a
+                <div className="mobile-social-icons">
+                  {socialLinks.map(({ icon, href, label }) => (
+                    <a
                       key={label}
                       href={href}
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={label}
                       className="mobile-social-icon"
-                      variants={socialIconVariants}
-                      whileHover={{
-                        scale: 1.15,
-                        y: -2,
-                        transition: { duration: 0.2 }
-                      }}
-                      whileTap={{ scale: 0.9 }}
                     >
                       {icon}
-                    </motion.a>
+                    </a>
                   ))}
-                </motion.div>
+                </div>
               </div>
             </motion.div>
           )}
