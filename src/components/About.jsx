@@ -331,7 +331,7 @@ export default function About() {
               className="description"
               style={styles.paragraph}
             >
-              Hi I'm a passionate Korean Software Engineer living in Mexico having experience, projects, and a desire to create the most up to date websites, applications, and projects using a variety of modern technologies such as the MERN stack, I speak 4 languages, and I look forward to working with you.
+              Hi, I'm Won Seob, a passionate Korean Software Engineer with experience collaborating on international teams across Mexico and the United States. I specialize in creating modern, high-performance web and mobile applications using technologies like the MERN stack. I speak four languages and am driven to deliver cutting edge solutions while constantly seeking innovation in the tech world.
             </motion.p>
 
             {/* Tech Stack Section */}

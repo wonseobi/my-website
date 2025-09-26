@@ -1,15 +1,6 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { FiMail, FiLinkedin, FiGithub, FiExternalLink, FiInstagram } from "react-icons/fi";
-
-const containerVariants = {
-  visible: { transition: { staggerChildren: 0.1 } },
-  hidden: {}
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30, scale: 0.98 },
-  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, ease: "easeOut" } },
-};
 
 const contactItems = [
   {
@@ -75,6 +66,27 @@ const styles = {
 };
 
 export default function Contact() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const containerVariants = {
+    visible: isMobile
+      ? {}
+      : { transition: { staggerChildren: 0.1 } },
+    hidden: {}
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: isMobile ? 0 : 30, scale: 0.98 },
+    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: "easeOut" } },
+  };
+
   return (
     <>
       <style jsx>{`
@@ -124,186 +136,184 @@ export default function Contact() {
       `}</style>
 
       <footer id="contact" style={styles.section}>
-      {/* Subtle section overlay */}
-      <div style={{
-        position: "absolute",
-        inset: 0,
-        background: "radial-gradient(circle at 20% 50%, rgba(59,130,246,0.05), transparent), radial-gradient(circle at 80% 20%, rgba(236,72,153,0.05), transparent)",
-        opacity: 0.6,
-        animation: "float 6s ease-in-out infinite"
-      }} />
+        {/* Section overlay */}
+        <div style={{
+          position: "absolute",
+          inset: 0,
+          background: "radial-gradient(circle at 20% 50%, rgba(59,130,246,0.05), transparent), radial-gradient(circle at 80% 20%, rgba(236,72,153,0.05), transparent)",
+          opacity: 0.6,
+          animation: "float 6s ease-in-out infinite"
+        }} />
 
-      {/* Content container */}
-      <div style={{
-        position: "relative",
-        zIndex: 1,
-        padding: 0,
-        maxWidth: "1200px",
-        margin: "0 auto"
-      }}>
-        {/* Header */}
-        <div style={{ textAlign: "center", marginBottom: "3rem", paddingTop: "3rem" }}>
-          <motion.h2
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="header-text"
-            style={styles.headerText}
-          >
-            Let's Connect
-          </motion.h2>
+        {/* Content */}
+        <div style={{
+          position: "relative",
+          zIndex: 1,
+          padding: 0,
+          maxWidth: "1200px",
+          margin: "0 auto"
+        }}>
+          {/* Header */}
+          <div style={{ textAlign: "center", marginBottom: "3rem", paddingTop: "3rem" }}>
+            <motion.h2
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="header-text"
+              style={styles.headerText}
+            >
+              Let's Connect
+            </motion.h2>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="header-description"
-            style={{
-              color: "rgba(255,255,255,0.7)",
-              fontSize: "1.1rem",
-              maxWidth: 600,
-              margin: "0 auto",
-              lineHeight: "1.6"
-            }}
-          >
-            Ready to collaborate? I'd love to hear from you!
-          </motion.p>
-        </div>
-
-        {/* Contact Cards */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          className="contact-cards"
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            flexWrap: "wrap",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: "2rem",
-            marginBottom: "2rem",
-            padding: "0 2rem",
-            maxWidth: "1200px",
-            margin: "0 auto"
-          }}
-        >
-          {contactItems.map((item, index) => (
-            <motion.a
-              key={index}
-              href={item.href}
-              target={item.href.startsWith('mailto:') ? '_self' : '_blank'}
-              rel="noopener noreferrer"
-              variants={itemVariants}
-              whileHover={{
-                y: -10,
-                scale: 1.02,
-                transition: { duration: 0.15 }
-              }}
-              className="contact-card"
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="header-description"
               style={{
-                ...styles.contactCard,
-                textDecoration: "none",
-                color: "inherit",
-                width: "100%",
-                maxWidth: "340px",
-                minWidth: "280px",
-                flex: "1 1 300px"
+                color: "rgba(255,255,255,0.7)",
+                fontSize: "1.1rem",
+                maxWidth: 600,
+                margin: "0 auto",
+                lineHeight: "1.6"
               }}
             >
-              {/* Accent line */}
-              <div style={{
-                height: "4px",
-                background: `linear-gradient(90deg, ${item.accent})`,
-                position: "absolute",
-                top: 0,
-                left: 0,
-                right: 0,
-                zIndex: 2,
-                borderRadius: "1.5rem 1.5rem 0 0"
-              }} />
+              Ready to collaborate? I'd love to hear from you!
+            </motion.p>
+          </div>
 
-              {/* Content */}
-              <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1rem" }}>
-                <div style={{
-                  padding: "0.75rem",
-                  borderRadius: "1rem",
-                  background: `linear-gradient(135deg, ${item.accent.replace('from-', 'rgba(').replace('to-', 'rgba(').replace('-500', ', 0.2)').replace('-600', ', 0.2)').replace('-700', ', 0.2)').replace('-400', ', 0.2)')})`,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center"
-                }}>
-                  <item.icon size={24} color="#fff" />
-                </div>
-                <div style={{ flex: 1 }}>
-                  <h3 style={{
-                    fontSize: "1.25rem",
-                    fontWeight: 700,
-                    color: "#fff",
-                    margin: 0,
-                    marginBottom: "0.25rem"
-                  }}>
-                    {item.label}
-                  </h3>
-                  <p style={{
-                    color: "rgba(255,255,255,0.7)",
-                    fontSize: "0.9rem",
-                    margin: 0
-                  }}>
-                    {item.description}
-                  </p>
-                </div>
-                <FiExternalLink
-                  size={18}
-                  color="rgba(255,255,255,0.5)"
-                  style={{ transition: "transform 0.15s ease" }}
-                />
-              </div>
-
-              <div style={{
-                color: "rgba(255,255,255,0.9)",
-                fontSize: "0.95rem",
-                fontWeight: 500,
-                fontFamily: "monospace",
-                background: "rgba(255,255,255,0.05)",
-                padding: "0.75rem 1rem",
-                borderRadius: "0.75rem",
-                border: "1px solid rgba(255,255,255,0.1)"
-              }}>
-                {item.value}
-              </div>
-
-              {/* Hover overlay */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileHover={{ opacity: 1 }}
+          {/* Contact Cards */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="contact-cards"
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              flexWrap: "wrap",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "2rem",
+              marginBottom: "2rem",
+              padding: "0 2rem",
+              maxWidth: "1200px",
+              margin: "0 auto"
+            }}
+          >
+            {contactItems.map((item, index) => (
+              <motion.a
+                key={index}
+                href={item.href}
+                target={item.href.startsWith("mailto:") ? "_self" : "_blank"}
+                rel="noopener noreferrer"
+                variants={itemVariants}
+                whileHover={!isMobile ? { y: -10, scale: 1.02, transition: { duration: 0.15 } } : {}}
+                className="contact-card"
                 style={{
-                  position: "absolute",
-                  inset: 0,
-                  background: `linear-gradient(135deg, ${item.accent.replace('from-', 'rgba(').replace('to-', 'rgba(').replace('-500', ', 0.05)').replace('-600', ', 0.05)').replace('-700', ', 0.05)').replace('-400', ', 0.05)')})`,
-                  pointerEvents: "none",
-                  borderRadius: "1.5rem"
+                  ...styles.contactCard,
+                  textDecoration: "none",
+                  color: "inherit",
+                  width: "100%",
+                  maxWidth: "340px",
+                  minWidth: "280px",
+                  flex: "1 1 300px"
                 }}
-              />
-            </motion.a>
-          ))}
-        </motion.div>
+              >
+                {/* Accent line */}
+                <div style={{
+                  height: "4px",
+                  background: `linear-gradient(90deg, ${item.accent})`,
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  zIndex: 2,
+                  borderRadius: "1.5rem 1.5rem 0 0"
+                }} />
 
-        {/* Footer note */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          style={styles.footerNote}
-        >
-          <p style={{ margin: 0 }}>
-            © 2025 Built and Developed by Won Lee
-          </p>
-        </motion.div>
-      </div>
-    </footer>
+                {/* Content */}
+                <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1rem" }}>
+                  <div style={{
+                    padding: "0.75rem",
+                    borderRadius: "1rem",
+                    background: `linear-gradient(135deg, ${item.accent.replace('from-', 'rgba(').replace('to-', 'rgba(').replace('-500', ', 0.2)').replace('-600', ', 0.2)').replace('-700', ', 0.2)').replace('-400', ', 0.2)')})`,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center"
+                  }}>
+                    <item.icon size={24} color="#fff" />
+                  </div>
+                  <div style={{ flex: 1 }}>
+                    <h3 style={{
+                      fontSize: "1.25rem",
+                      fontWeight: 700,
+                      color: "#fff",
+                      margin: 0,
+                      marginBottom: "0.25rem"
+                    }}>
+                      {item.label}
+                    </h3>
+                    <p style={{
+                      color: "rgba(255,255,255,0.7)",
+                      fontSize: "0.9rem",
+                      margin: 0
+                    }}>
+                      {item.description}
+                    </p>
+                  </div>
+                  <FiExternalLink
+                    size={18}
+                    color="rgba(255,255,255,0.5)"
+                    style={{ transition: "transform 0.15s ease" }}
+                  />
+                </div>
+
+                <div style={{
+                  color: "rgba(255,255,255,0.9)",
+                  fontSize: "0.95rem",
+                  fontWeight: 500,
+                  fontFamily: "monospace",
+                  background: "rgba(255,255,255,0.05)",
+                  padding: "0.75rem 1rem",
+                  borderRadius: "0.75rem",
+                  border: "1px solid rgba(255,255,255,0.1)"
+                }}>
+                  {item.value}
+                </div>
+
+                {/* Hover overlay */}
+                {!isMobile && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    whileHover={{ opacity: 1 }}
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      background: `linear-gradient(135deg, ${item.accent.replace('from-', 'rgba(').replace('to-', 'rgba(').replace('-500', ', 0.05)').replace('-600', ', 0.05)').replace('-700', ', 0.05)').replace('-400', ', 0.05)')})`,
+                      pointerEvents: "none",
+                      borderRadius: "1.5rem"
+                    }}
+                  />
+                )}
+              </motion.a>
+            ))}
+          </motion.div>
+
+          {/* Footer note */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            style={styles.footerNote}
+          >
+            <p style={{ margin: 0 }}>
+              © 2025 Built and Developed by Won Lee
+            </p>
+          </motion.div>
+        </div>
+      </footer>
     </>
   );
 }
