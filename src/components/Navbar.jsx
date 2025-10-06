@@ -107,7 +107,7 @@ export default function Navbar() {
         .menu a::after { content: ''; position: absolute; bottom: 0.25rem; left: 50%; width: 0; height: 2px; background: linear-gradient(90deg, #60A5FA, #A78BFA); transition: all 0.3s cubic-bezier(0.4,0,0.2,1); transform: translateX(-50%); border-radius: 1px; }
         .menu a:hover { color: #fff; transform: translateY(-1px); }
         .menu a:hover::after { width: 100%; }
-        .social-icons { display: flex; gap: 1.5rem; justify-content: flex-end; flex: 1; }
+        .social-icons { display: flex; gap: 1.5rem; justify-content: flex-end; flex: 1; padding-left: 2em}
         .social-icons a { color: rgba(255, 255, 255, 0.8); font-size: 1.25rem; cursor: pointer; display: flex; align-items: center; padding: 0.5rem; border-radius: 8px; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); position: relative; }
         .social-icons a:hover { color: #fff; transform: translateY(-2px); }
 
