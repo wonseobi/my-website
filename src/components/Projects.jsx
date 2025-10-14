@@ -19,6 +19,8 @@ import weatherlyImg from "../assets/weatherly.png";
 import streakifyImg from "../assets/streakify.png";
 import portfolio2Img from "../assets/portfolio2.png";
 import certerusLPImg from "../assets/certerusLPImg.png";
+import daytonalibertyImg from "../assets/daytonaliberty.png";
+import xponentmarketingImg from "../assets/xponentmarketing.png";
 import { FiExternalLink } from "react-icons/fi";
 
 const containerVariants = { visible: { transition: { staggerChildren: 0.05 } }, hidden: {} };
@@ -38,6 +40,15 @@ const projects = [
     featured: true,
     category: "app",
   },
+    {
+  title: "📈 Daytona Liberty",
+  desc: "Crypto hedge fund website built under DDS Marketing, focused on showcasing systematic trading strategies with a corporate focused design.",
+  img: daytonalibertyImg,
+  tags: ["Figma", "React", "Cursor AI"],
+  accent: "from-blue-500 to-indigo-400",
+//   url: "https://daytonaliberty.com", // or your live URL
+  category: "website",
+},
   {
     title: "🎨 Freelanced Design Portfolio",
     desc: "Portfolio showcasing concept art, illustrations, and UX/UI projects, highlighting creativity and professional design skills.",
@@ -47,13 +58,22 @@ const projects = [
     url: "https://www.figma.com/proto/lpfSykBVYm94IOaC9Anird/Alfonso-Emanuel-Portfolio-Website?page-id=0%3A1&node-id=2002-2&p=f&viewport=2238%2C74%2C0.4&t=ojVCmnlmo1VRVAkT-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2002%3A2",
     category: "website",
   },
+{
+  title: "⚡ Xponent Marketing",
+  desc: "Conversion rate–focused website developed under DDS Marketing, emphasizing performance, lead generation, and modern responsive UI.",
+  img: xponentmarketingImg,
+  tags: ["Next.js", "React", "UI/UX"],
+  accent: "from-orange-500 to-red-400",
+//   url: "https://xponentmarketing.com", // or your live URL
+  category: "website",
+},
   {
     title: "🚀 Certerus Landing Page",
     desc: "Modern landing page prototype designed in Figma with clean layouts and intuitive user experience for a professional brand.",
     img: certerusLPImg,
     tags: ["Figma", "Web Design", "UX/UI"],
     accent: "from-blue-500 to-cyan-400",
-    url: "https://www.figma.com/proto/1OS7IaoRh4Oj40SPSHtw42/Certerus-Landing-Page?page-id=0%3A1&node-id=2-2294&viewport=-5459%2C-2790%2C0.62&t=CdpVO7Ftg1pgwV4X-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2%3A2294",
+    url: "https://www.certerus.com/aula-empresarial/",
     category: "website",
   },
   {
@@ -491,31 +511,31 @@ export default function Projects() {
                     >
                       {p.title}
                     </h3>
-                    <a
-                      href={p.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        textDecoration: "none",
-                        display: "flex",
-                        alignItems: "center",
-                        color: "#93c5fd",
-                      }}
-                    >
-                      <FiExternalLink
-                        size={18}
-                        color="#dbdbdb"
-                        style={{
-                          transition: "transform 0.15s ease",
-                        }}
-                        onMouseEnter={(e) =>
-                          (e.currentTarget.style.transform = "scale(1.2)")
-                        }
-                        onMouseLeave={(e) =>
-                          (e.currentTarget.style.transform = "scale(1)")
-                        }
-                      />
-                    </a>
+                    {p.url && (
+                        <a
+                            href={p.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{
+                            textDecoration: "none",
+                            display: "flex",
+                            alignItems: "center",
+                            color: "#93c5fd",
+                            }}
+                        >
+                            <FiExternalLink
+                            size={18}
+                            color="#dbdbdb"
+                            style={{ transition: "transform 0.15s ease" }}
+                            onMouseEnter={(e) =>
+                                (e.currentTarget.style.transform = "scale(1.2)")
+                            }
+                            onMouseLeave={(e) =>
+                                (e.currentTarget.style.transform = "scale(1)")
+                            }
+                            />
+                        </a>
+                        )}
                   </div>
                   <p
                     style={{

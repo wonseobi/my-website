@@ -23,7 +23,7 @@ const experiences = [
   },
   {
     id: 2,
-    title: "Frontend Developer Intern",
+    title: "Frontend Software Engineer Intern",
     company: "Cash App",
     location: "Remote, USA",
     period: "JUN 2023 - JAN 2024",
