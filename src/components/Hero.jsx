@@ -4,31 +4,31 @@ import TextType from './TextType';
 
 
 // Import tech stack icons
-import reactIcon from "../assets/react.png";
-import javascriptIcon from "../assets/javascript.png";
-import nodejsIcon from "../assets/nodejs.png";
-import htmlIcon from "../assets/html.png";
-import cssIcon from "../assets/css.png";
-import pythonIcon from "../assets/python.png";
-import gitIcon from "../assets/git.png";
-import postgresqlIcon from "../assets/postgresql.png";
-import typescriptIcon from "../assets/typescript.png";
-import vueIcon from "../assets/vue.png";
-import sassIcon from "../assets/sass.png";
-import nextjsIcon from "../assets/nextjs.png";
-import wordpressIcon from "../assets/wordpress.png";
-import figmaIcon from "../assets/figma.png";
-import mongodbIcon from "../assets/mongodb.png";
-import csharpIcon from "../assets/csharp.png";
-import phpIcon from "../assets/php.png";
-import mysqlIcon from "../assets/mysql.png";
-import laravelIcon from "../assets/laravel.png";
-import graphqlIcon from "../assets/graphql.png";
-import awsIcon from "../assets/aws.png";
-import googlecloudIcon from "../assets/googlecloud.png";
-import azureIcon from "../assets/azure.png";
-import dockerIcon from "../assets/docker.png";
-import kubernetesIcon from "../assets/kubernetes.png";
+import reactIcon from "../assets/react.webp";
+import javascriptIcon from "../assets/javascript.webp";
+import nodejsIcon from "../assets/nodejs.webp";
+import htmlIcon from "../assets/html.webp";
+import cssIcon from "../assets/css.webp";
+import pythonIcon from "../assets/python.webp";
+import gitIcon from "../assets/git.webp";
+import postgresqlIcon from "../assets/postgresql.webp";
+import typescriptIcon from "../assets/typescript.webp";
+import vueIcon from "../assets/vue.webp";
+import sassIcon from "../assets/sass.webp";
+import nextjsIcon from "../assets/nextjs.webp";
+import wordpressIcon from "../assets/wordpress.webp";
+import figmaIcon from "../assets/figma.webp";
+import mongodbIcon from "../assets/mongodb.webp";
+import csharpIcon from "../assets/csharp.webp";
+import phpIcon from "../assets/php.webp";
+import mysqlIcon from "../assets/mysql.webp";
+import laravelIcon from "../assets/laravel.webp";
+import graphqlIcon from "../assets/graphql.webp";
+import awsIcon from "../assets/aws.webp";
+import googlecloudIcon from "../assets/googlecloud.webp";
+import azureIcon from "../assets/azure.webp";
+import dockerIcon from "../assets/docker.webp";
+import kubernetesIcon from "../assets/kubernetes.webp";
 
 const ease = [0.6, -0.05, 0.01, 0.99];
 
@@ -109,7 +109,7 @@ const TechIcon = ({ tech, index, position, onAnimationComplete }) => (
       ease: "easeInOut"
     }}
     onAnimationComplete={() => {
-      if (index === 6) { // Last bubble (index 6 of 7 bubbles)
+      if (index === 4) { // Last bubble (index 4 of 5 bubbles)
         onAnimationComplete();
       }
     }}
@@ -118,11 +118,10 @@ const TechIcon = ({ tech, index, position, onAnimationComplete }) => (
       left: `${position?.left || 15 + (index * 10)}%`,
       top: `${position?.top || 25 + (index * 9) % 50}%`,
       zIndex: 1,
-      background: `linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02))`,
+      background: `rgba(255, 255, 255, 0.1)`,
       padding: "0.8rem",
       borderRadius: "12px",
       border: `1px solid rgba(255, 255, 255, 0.15)`,
-      backdropFilter: "blur(15px)",
       boxShadow: `0 4px 15px rgba(0, 0, 0, 0.1), 0 0 10px ${tech.color}30`,
       display: "flex",
       alignItems: "center",
@@ -136,8 +135,7 @@ const TechIcon = ({ tech, index, position, onAnimationComplete }) => (
         style={{
           width: "32px",
           height: "32px",
-          filter: `drop-shadow(0 0 8px ${tech.color}80)`,
-          transition: "all 0.3s ease",
+      filter: `drop-shadow(0 0 8px ${tech.color}80)`,
         }}
       />
     ) : (
@@ -226,8 +224,8 @@ export default function Hero() {
 
   // Function to regenerate tech stack with new random items
   const regenerateTechStack = () => {
-    const newTechStack = getUniqueRandomTech(7);
-    const newPositions = generateRandomPositions(7);
+    const newTechStack = getUniqueRandomTech(5);
+    const newPositions = generateRandomPositions(5);
     setShuffledTechStack(newTechStack);
     setRandomPositions(newPositions);
     setAnimationKey(prev => prev + 1); // Force re-render with new key
@@ -242,7 +240,7 @@ export default function Hero() {
   };
 
   useEffect(() => {
-    // Initialize with 7 random tech items
+    // Initialize with 5 random tech items
     regenerateTechStack();
 
     const skillInterval = setInterval(() => {
@@ -252,6 +250,7 @@ export default function Hero() {
     return () => {
       clearInterval(skillInterval);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -265,6 +264,7 @@ export default function Hero() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        zIndex: '-9999',
       }}
     >
       <div
@@ -296,7 +296,7 @@ export default function Hero() {
         }}
       />
 
-      {[...Array(4)].map((_, i) => (
+      {[...Array(2)].map((_, i) => (
         <FloatingOrb key={i} index={i} />
       ))}
 
@@ -313,7 +313,7 @@ export default function Hero() {
       <div
         style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, pointerEvents: "none" }}
       >
-        {[...Array(12)].map((_, i) => (
+        {[...Array(3)].map((_, i) => (
           <Particle key={i} index={i} />
         ))}
       </div>
@@ -411,7 +411,9 @@ export default function Hero() {
               border: "1px solid rgba(59, 130, 246, 0.3)",
               boxShadow:
                 "0 4px 15px rgba(59, 130, 246, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)",
-              backdropFilter: "blur(15px)",
+              backdropFilter: "blur(8px)",
+      willChange: "transform, opacity",
+      transform: "translateZ(0)",
               textShadow: "0 0 10px rgba(59, 130, 246, 0.5)",
             }}
           >
@@ -515,7 +517,9 @@ export default function Hero() {
               fontWeight: "600",
               cursor: "pointer",
               transition: "all 0.3s ease",
-              backdropFilter: "blur(15px)",
+              backdropFilter: "blur(8px)",
+      willChange: "transform, opacity",
+      transform: "translateZ(0)",
               boxShadow: "0 8px 25px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1)",
             }}
           >

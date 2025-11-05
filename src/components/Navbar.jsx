@@ -36,18 +36,6 @@ const Logo = ({ className = "" }) => (
         animate={{ pathLength: 1, opacity: 1 }}
         transition={{ duration: 1.5, ease: "easeInOut", delay: 0.2 }}
       />
-      <motion.circle
-        cx="16"
-        cy="16"
-        r="14"
-        stroke="url(#logoGradient)"
-        strokeWidth="1.5"
-        fill="none"
-        opacity="0.3"
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 0.3 }}
-        transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
-      />
     </svg>
   </motion.div>
 );
@@ -57,8 +45,17 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 50);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -98,10 +95,8 @@ export default function Navbar() {
         .navbar { backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); animation: fadeIn 0.6s ease-out; font-family: 'Figtree', sans-serif; border-bottom: 1px solid rgba(255,255,255,0.08); }
         .navbar-brand-container { display: flex; align-items: center; gap: 0.75rem; cursor: pointer; flex: 1; text-align: left; padding-right: 2em !important; }
         .logo-container { display: flex; align-items: center; justify-content: center; position: relative; }
-        .logo-svg { filter: drop-shadow(0 0 8px rgba(0, 217, 255, 0.3)); transition: all 0.3s ease; }
-        .navbar-brand-container:hover .logo-svg { filter: drop-shadow(0 0 16px rgba(0, 217, 255, 0.5)) drop-shadow(0 0 8px rgba(0, 255, 170, 0.3)); transform: rotate(5deg); }
-        .navbar-brand { font-weight: 700; font-size: 1.4rem; letter-spacing: -0.025em; margin: 0; background: linear-gradient(135deg, #f8fafc 0%, #ffffff 25%, #e2e8f0 50%, #ffffff 75%, #f1f5f9 100%); background-size: 200% 200%; background-position: 0% 50%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
-        .navbar-brand-container:hover .navbar-brand { background-position: 100% 50%; transform: translateX(2px); }
+        .logo-svg { filter: drop-shadow(0 0 8px rgba(0, 217, 255, 0.3)); }
+        .navbar-brand { font-weight: 700; font-size: 1.4rem; letter-spacing: -0.025em; margin: 0; background: linear-gradient(135deg, #f8fafc 0%, #ffffff 25%, #e2e8f0 50%, #ffffff 75%, #f1f5f9 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
         .menu { display: flex; gap: 2.5rem; justify-content: center; flex: 2; }
         .menu a { color: rgba(255, 255, 255, 0.85); font-size: 0.95rem; font-weight: 500; padding: 0.75rem 0.5rem; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); cursor: pointer; display: inline-block; position: relative; font-family: 'Figtree', sans-serif; letter-spacing: -0.01em; }
         .menu a::after { content: ''; position: absolute; bottom: 0.25rem; left: 50%; width: 0; height: 2px; background: linear-gradient(90deg, #60A5FA, #A78BFA); transition: all 0.3s cubic-bezier(0.4,0,0.2,1); transform: translateX(-50%); border-radius: 1px; }
@@ -141,8 +136,11 @@ export default function Navbar() {
           right: 0,
           zIndex: 1000,
           padding: "1rem 2rem",
-          background: isScrolled ? "rgba(15, 23, 42, 0.96)" : "rgba(15, 23, 42, 0.85)",
-          boxShadow: isScrolled ? "0 12px 40px rgba(0,0,0,0.35)" : "0 4px 20px rgba(0,0,0,0.15)",
+          background: isScrolled ? "rgba(10, 10, 15, 0.95)" : "rgba(10, 10, 15, 0.85)",
+          backdropFilter: "blur(10px)",
+          WebkitBackdropFilter: "blur(10px)",
+          boxShadow: isScrolled ? "0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.05)" : "0 4px 24px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.05)",
+          borderBottom: "1px solid rgba(255,255,255,0.08)",
         }}
       >
         <div

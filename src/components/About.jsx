@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import profileImg from "../assets/profile.PNG";
+import profileImg from "../assets/profile.webp";
 
 const styles = {
   section: {
@@ -35,15 +35,17 @@ const styles = {
     gap: "1.5rem",
   },
   name: {
-    fontSize: "3rem",
+    fontSize: "3.5rem",
     fontWeight: 800,
-    background: "linear-gradient(135deg, #fff, #e2e8f0)",
+    background: "linear-gradient(135deg, #ffffff 0%, #e2e8f0 50%, #cbd5e1 100%)",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
+    backgroundClip: "text",
     margin: 0,
     padding: 0,
-    letterSpacing: "-0.02em",
+    letterSpacing: "-0.03em",
     lineHeight: "1.1",
+    textShadow: "0 0 40px rgba(255,255,255,0.1)",
   },
   subtitle: {
     fontSize: "1.5rem",
@@ -92,12 +94,12 @@ const styles = {
     alignItems: "center",
     gap: "0.5rem",
     padding: "0.5rem 0.75rem",
-    background: "rgba(255,255,255,0.05)",
+    background: "rgba(255,255,255,0.1)",
     borderRadius: "8px",
-    border: "1px solid rgba(255,255,255,0.1)",
-    backdropFilter: "blur(10px)",
-    transition: "all 0.3s ease",
+    border: "1px solid rgba(255,255,255,0.12)",
+    transition: "transform 0.2s ease, box-shadow 0.2s ease",
     cursor: "default",
+    boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
   },
   techStackBullet: {
     width: "4px",
@@ -125,10 +127,9 @@ const styles = {
     height: "280px",
     borderRadius: "50%",
     overflow: "hidden",
-    background: "rgba(255,255,255,0.08)",
+    background: "rgba(255,255,255,0.1)",
     boxShadow:
-      "0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.1)",
-    backdropFilter: "blur(10px)",
+      "0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.1)",
   },
   image: {
     width: "100%",
@@ -175,17 +176,6 @@ export default function About() {
 
   return (
     <div id="about" style={styles.section}>
-      {/* Animated background */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          background:
-            "radial-gradient(circle at 80% 20%, rgba(59,130,246,0.05), transparent), radial-gradient(circle at 20% 80%, rgba(236,72,153,0.05), transparent)",
-          animation: "float 6s ease-in-out infinite",
-          opacity: 0.6,
-        }}
-      />
 
       {/* CSS animations */}
       <style jsx>{`
@@ -214,7 +204,7 @@ export default function About() {
           background: rgba(255, 255, 255, 0.1) !important;
           border-color: rgba(255, 255, 255, 0.3) !important;
           transform: translateY(-2px) !important;
-          box-shadow: 0 8px 25px rgba(255, 255, 255, 0.15) !important;
+          box-shadow: 0 8px 25px rgba(255, 255, 255, 0.15), 0 0 20px rgba(255,255,255,0.2), 0 0 40px rgba(255,255,255,0.1) !important;
         }
 
         @media (max-width: 768px) {
@@ -347,7 +337,7 @@ export default function About() {
                     variants={techStackItemVariants}
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true }}
+                    viewport={{ once: true, amount: 0.1 }}
                     transition={{ duration: 0.4, delay: 0.8 + index * 0.1 }}
                     className="tech-stack-item"
                     style={styles.techStackItem}
@@ -371,7 +361,7 @@ export default function About() {
           >
             <div style={styles.gradientRing} />
             <div className="image-wrapper" style={styles.imageWrapper}>
-              <img src={profileImg} alt="Won Lee" style={styles.image} />
+              <img src={profileImg} alt="Won Lee" loading="lazy" decoding="async" style={styles.image} />
             </div>
 
             {/* Floating elements */}
@@ -386,7 +376,7 @@ export default function About() {
                 height: "60px",
                 background: "rgba(59,130,246,0.2)",
                 borderRadius: "50%",
-                backdropFilter: "blur(10px)",
+                background: "rgba(59,130,246,0.15)",
                 border: "1px solid rgba(255,255,255,0.1)",
               }}
             />
@@ -407,7 +397,7 @@ export default function About() {
                 height: "40px",
                 background: "rgba(236,72,153,0.2)",
                 borderRadius: "50%",
-                backdropFilter: "blur(10px)",
+                background: "rgba(59,130,246,0.15)",
                 border: "1px solid rgba(255,255,255,0.1)",
               }}
             />

@@ -46,14 +46,14 @@ const styles = {
     letterSpacing: "-0.02em"
   },
   contactCard: {
-    background: "rgba(255,255,255,0.08)",
+    background: "rgba(255,255,255,0.1)",
     borderRadius: "1.5rem",
     padding: "2rem",
-    boxShadow: "0 10px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.1)",
-    backdropFilter: "blur(10px)",
+    boxShadow: "0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.1)",
     position: "relative",
     cursor: "pointer",
-    border: "1px solid rgba(255,255,255,0.1)"
+    border: "1px solid rgba(255,255,255,0.1)",
+    transition: "transform 0.2s ease, box-shadow 0.2s ease",
   },
   footerNote: {
     color: "rgba(255,255,255,0.5)",
@@ -136,14 +136,6 @@ export default function Contact() {
       `}</style>
 
       <footer id="contact" style={styles.section}>
-        {/* Section overlay */}
-        <div style={{
-          position: "absolute",
-          inset: 0,
-          background: "radial-gradient(circle at 20% 50%, rgba(59,130,246,0.05), transparent), radial-gradient(circle at 80% 20%, rgba(236,72,153,0.05), transparent)",
-          opacity: 0.6,
-          animation: "float 6s ease-in-out infinite"
-        }} />
 
         {/* Content */}
         <div style={{
@@ -160,7 +152,12 @@ export default function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               className="header-text"
-              style={styles.headerText}
+              style={{
+                ...styles.headerText,
+                fontSize: "2.5rem",
+                letterSpacing: "-0.03em",
+                textShadow: "0 0 40px rgba(255,255,255,0.1)",
+              }}
             >
               Let's Connect
             </motion.h2>
@@ -187,7 +184,7 @@ export default function Contact() {
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
             className="contact-cards"
             style={{
               display: "flex",
@@ -209,7 +206,12 @@ export default function Contact() {
                 target={item.href.startsWith("mailto:") ? "_self" : "_blank"}
                 rel="noopener noreferrer"
                 variants={itemVariants}
-                whileHover={!isMobile ? { y: -10, scale: 1.02, transition: { duration: 0.15 } } : {}}
+                whileHover={!isMobile ? { 
+                  y: -10, 
+                  scale: 1.02, 
+                  transition: { duration: 0.15 },
+                  boxShadow: "0 10px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.1), 0 0 35px rgba(255,255,255,0.2), 0 0 65px rgba(255,255,255,0.1)"
+                } : {}}
                 className="contact-card"
                 style={{
                   ...styles.contactCard,

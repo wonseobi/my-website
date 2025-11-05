@@ -107,16 +107,6 @@ export default function Experience() {
 
   return (
     <div id="experience" style={{ padding: "4rem 0", position: "relative" }}>
-      <div style={{
-        position: "absolute",
-        inset: 0,
-        background: `
-          radial-gradient(circle at 30% 70%, rgba(59,130,246,0.03), transparent),
-          radial-gradient(circle at 70% 30%, rgba(236,72,153,0.03), transparent)
-        `,
-        animation: "float 6s ease-in-out infinite",
-        opacity: 0.4,
-      }} />
 
       <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "0 2rem", position: "relative", zIndex: 1 }}>
         <motion.div
@@ -125,7 +115,16 @@ export default function Experience() {
           transition={{ duration: 0.6 }}
           style={{ textAlign: "center", marginBottom: "4rem" }}
         >
-          <h2 style={{ fontSize: "2.2rem", fontWeight: 800, background: "linear-gradient(135deg, #fff, #e2e8f0)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Professional Experience</h2>
+          <h2 style={{
+            fontSize: "2.5rem",
+            fontWeight: 800,
+            background: "linear-gradient(135deg, #ffffff 0%, #e2e8f0 50%, #cbd5e1 100%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+            letterSpacing: "-0.03em",
+            textShadow: "0 0 40px rgba(255,255,255,0.1)",
+          }}>Professional Experience</h2>
           <p style={{ color: "rgba(255,255,255,0.7)", fontSize: "1.1rem", maxWidth: 600, margin: "0 auto 4rem", lineHeight: "1.6" }}>
             My journey through the tech industry • Click on any company to explore
           </p>
@@ -147,8 +146,8 @@ export default function Experience() {
               variants={containerVariants}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true }}
-              style={{ display: "flex", flexDirection: "column", gap: "0.5rem", overflowX: isMobile ? "visible" : "hidden" }}
+              viewport={{ once: true, amount: 0.1, margin: "0px 0px -100px 0px" }}
+              style={{ display: "flex", flexDirection: "column", gap: "0.5rem", overflowX: isMobile ? "visible" : "hidden", overflowY: "visible" }}
             >
               {experiences.map(exp => (
                 <motion.div
@@ -156,15 +155,17 @@ export default function Experience() {
                   variants={itemVariants}
                   style={{
                     padding: "1.5rem",
-                    background: "rgba(255,255,255,0.05)",
+                    background: "rgba(255,255,255,0.1)",
                     borderRadius: "1rem",
-                    backdropFilter: "blur(10px)",
                     cursor: "pointer",
                     position: "relative",
-                    overflow: "hidden",
+                    overflow: "visible",
                     marginBottom: "0.5rem",
+                    boxShadow: "0 4px 20px rgba(0,0,0,0.2), 0 0 0 1px rgba(255,255,255,0.1)",
+                    transition: "transform 0.15s ease-out",
                   }}
                   onClick={() => setSelectedExperience(exp)}
+
                   whileTap={{ scale: 0.98 }}
                 >
                   <div style={{
@@ -199,14 +200,13 @@ export default function Experience() {
                   animate="visible"
                   exit="hidden"
                   style={{
-                    background: "rgba(255,255,255,0.08)",
+                    background: "rgba(255,255,255,0.1)",
                     borderRadius: "1.5rem",
                     padding: "2.5rem",
-                    boxShadow: "0 10px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.1)",
-                    backdropFilter: "blur(10px)",
+                    boxShadow: "0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.1)",
                     height: "100%",
                     position: "relative",
-                    overflow: "hidden"
+                    overflow: "hidden",
                   }}
                 >
                   <div style={{
@@ -282,7 +282,7 @@ export default function Experience() {
             link.click();
             document.body.removeChild(link);
           }}
-          whileHover={{ scale: 1.05 }}
+
           whileTap={{ scale: 0.95 }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

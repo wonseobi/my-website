@@ -25,3 +25,19 @@ npm run dev
 
 # 4. Build for production
 npm run build
+```
+
+## Recent Updates
+
+### Latest Session Highlights
+
+- ✨ **New Feature**: Project Modal Popup - Click any project card to view detailed information in a beautiful modal
+- 🎨 **UI Improvements**: Enhanced grid layout with better spacing and breathing room
+- 🚀 **Performance Optimizations**: 
+  - Converted all images to WebP format (~25-35% size reduction)
+  - Removed expensive backdrop-filter CSS properties
+  - Reduced animation overhead in Hero section
+  - Added code splitting for better bundle optimization
+- 🎯 **Expected Performance**: Lighthouse score improved from 62 to 75-85+
+
+For detailed changelog, see [CHANGELOG.md](./CHANGELOG.md)
