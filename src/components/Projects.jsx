@@ -79,7 +79,7 @@ const LazyProjectCard = ({ project, index, onClick, viewMode, styles }) => {
           zIndex: 2,
         }}
       />
-      <div 
+      <div
         style={{ position: "relative", cursor: "pointer" }}
         onClick={(e) => {
           e.stopPropagation();
@@ -301,7 +301,7 @@ const projects = [
     tags: ["JavaScript", "CSS", "UI Design"],
     accent: "from-pink-500 to-rose-400",
     url: "https://flossdelray.mydentalconsult.com/botox/",
-    category: "landing page",
+    category: "website",
     company: "DDS Marketing",
 },
 {
@@ -321,7 +321,7 @@ const projects = [
     tags: ["HTML", "CSS", "UI/UX"],
     accent: "from-indigo-500 to-sky-400",
     url: "https://flossdelray.mydentalconsult.com/semaglutide/",
-    category: "landing page",
+    category: "website",
     company: "DDS Marketing",
 },
   {
@@ -948,7 +948,7 @@ export default function Projects() {
                 WebkitBackdropFilter: "blur(4px)",
               }}
             />
-            
+
             {/* Modal Content */}
             <motion.div
               ref={modalRef}
@@ -984,7 +984,7 @@ export default function Projects() {
                   flexShrink: 0,
                 }}
               />
-              
+
               {/* Close button */}
               <button
                 className="modal-close-btn"
