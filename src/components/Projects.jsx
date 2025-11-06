@@ -270,7 +270,7 @@ const projects = [
     img: aoxImg,
     tags: ["JavaScript", "CSS", "Formspree API"],
     accent: "from-blue-500 to-cyan-400",
-    // url: "https://aoxbilling.com",
+    url: "https://aoxbillingsolutions.mydentalconsult.com/",
     category: "website",
     company: "DDS Marketing",
 },
