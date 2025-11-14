@@ -245,6 +245,8 @@ import aoxImg from "../assets/aox.webp";
 import elkgroveImg from "../assets/elkgrove.webp";
 import botoxImg from "../assets/botox.webp";
 import semaImg from "../assets/sema.webp";
+import invisalignImg from "../assets/invisalign.webp";
+import botoxglowImg from "../assets/botox-glow.webp";
 import { FiExternalLink, FiGrid, FiList, FiX } from "react-icons/fi";
 
 const containerVariants = { visible: { transition: { staggerChildren: 0.03 } }, hidden: {} };
@@ -265,6 +267,16 @@ const projects = [
 	  company: "DDS Marketing",
 	},
     {
+    title: "💅 Floss Invisalign LP",
+    desc: "A sleek, modern landing page for Floss Delray. Includes seamless form integration, fast-loading performance, and a user-friendly experience across all devices.",
+    img: invisalignImg,
+    tags: ["JavaScript", "APIs", "CSS"],
+    accent: "from-blue-500 to-cyan-400",
+    url: "https://flossdelray.mydentalconsult.com/invisalign/",
+    category: "website",
+    company: "DDS Marketing"
+    },
+    {
     title: "🦷 AOX Billing Solutions",
     desc: "Responsive & modern landing page built for a specialized dental/coding billing service. Includes Formspree integration, optimized structure for conversions.",
     img: aoxImg,
@@ -273,7 +285,7 @@ const projects = [
     url: "https://aoxbillingsolutions.mydentalconsult.com/",
     category: "website",
     company: "DDS Marketing",
-},
+    },
   {
     title: "🌦️ Weatherly App",
     desc: "Cross-platform app providing real-time weather forecasts with a clean interface and OpenWeather API integration.",
@@ -284,6 +296,16 @@ const projects = [
     category: "app",
     company: "Personal",
   },
+  {
+    title: " Botox Glow LP",
+    desc: "An engaging landing page showcasing Floss Delray’s Botox treatments, designed to captivate visitors and encourage bookings. Built with smooth form functionality, fast load times, and a mobile-friendly experience.",
+    img: botoxglowImg,
+    tags: ["JavaScript", "APIs", "CSS"],
+    accent: "from-pink-500 to-red-400",
+    url: "https://flossdelray.mydentalconsult.com/botox/",
+    category: "website",
+    company: "DDS Marketing"
+},
 {
     title: "🏙️ Elk Grove Village Dental",
     desc: "Modern and SEO-ready website migration for a dental practice. Refined UI with local SEO optimization and fast-loading structure on cPanel hosting.",
